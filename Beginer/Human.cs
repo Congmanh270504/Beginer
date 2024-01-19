@@ -19,5 +19,6 @@ namespace Beginer
         {
             Console.WriteLine("Name: " + name + " Age: " + age);
         }
-    }
+    }// check banch PC
+
 }
