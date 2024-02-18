@@ -10,15 +10,23 @@ namespace Beginer
     {
         private string name;
         private int age;
-      public Human(string name, int age)
+        public Human(string name, int age)
         {
             this.name = name;
             this.age = age;
         }
-      public void Display()
+        public void Display()
         {
             Console.WriteLine("Name: " + name + " Age: " + age);
         }
-    }// check banch PC
+    }
+
+    internal class Employee : Human
+    {
+        public Employee(string name, int age) : base(name, age)
+        {
+
+        }
+    }
 
 }
