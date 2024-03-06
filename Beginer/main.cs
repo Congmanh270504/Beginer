@@ -3,34 +3,65 @@
 namespace Beginer // Note: actual namespace depends on the project name.
 {
 
-    class main
+    class Program
     {
+
         static void Main(string[] args)
         {
-            //Employee Manh = new Employee("12MA", "Cong Manh", 1.6, 2022);
+            ////Student_Generic First = new Student_Generic();
+            //Student_Generic list = new Student_Generic();
+
+            //list.Add(new Student("4312a", "Manh", 9.0));
+            //list.Add(new Student("765B", "Son", 8.0));
+            //list.Add(new Student("078C", "Quy", 7.5));
+            //list.Add(new Student("1234D", "Tan", 10));
+
+            //list.xuatDS();
+
+            //list.getGreater8();
+
+            //Console.Write("Nhap ten sinh vien can tim: ");
+            //string a = Console.ReadLine()!;
+            //list.findStudentByName(a);
+
+            //Console.Write("Nhap ma sinh vien can tim: ");
+            //a = Console.ReadLine()!;
+            //list.findStudentById(a);
+            //int choose = 0;
+            //do
+            //{
+            //    Console.WriteLine("Nhap lua chon bai lam:");
+            //    choose = int.Parse(Console.ReadLine());
+            //    switch (choose)
+            //    {
+            //        case 1:
+            //            break;
+            //        case 2:
+            //            break;
+            //        default:
+            //            Console.WriteLine("Khong co su lua chon do");
+            //            break;
+            //    }
+            //}
+            //while (choose != 0);
 
 
-            ////float a = Manh.allowancePoint(Manh.TimeWork);
-            ////Console.WriteLine("Nam vao lam la: " + a);
-            ////double b = Manh.allowancePoint(a);
-            ////Console.WriteLine("He so phu cap tham nien la: " + b);
 
 
 
-            //Manh.getInfor();
+            EmployeeList employeeList = new EmployeeList();
+            employeeList.Add(new Employee("4312a", "Manh", 1.0, 2013));
+            employeeList.Add(new Employee("765B", "Son", 2.0, 2008));
+            employeeList.Add(new Employee("078C", "Quy", 3.5, 2015));
+            employeeList.Add(new Employee("1234D", "Tan", 4.0, 2018));
 
-            //double result2 = Manh.getSalary();
-            //Console.WriteLine("Luong co ban la: " + result2);
+            //employeeList.getInfor();
+            //employeeList.checkSalary();
 
-
-            //double result = Manh.allowancePoint();
-            //Console.WriteLine("He so phu cap tham nien la: " + result);
-
-            ElectricBill Manh = new ElectricBill("12MA", "Cong Manh", 150, 100, 'C');
-            Manh.getInfor();
-            Console.WriteLine("So dien tieu thu thuc te la: " + Manh.electricityConsumed());
-            Console.WriteLine("Tien dien phai tra la: "+ Manh.payElectricity());
-
+            //Console.WriteLine("Nhan vien co tien luong cao nhat thang: ");
+            //employeeList.indexOf(employeeList.getHighestSalary());
+            employeeList.sortDateWorkIncrease();
+            employeeList.getInfor();
             Console.ReadKey();
 
         }

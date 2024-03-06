@@ -13,7 +13,6 @@ namespace Beginer
         string name;
         double sodiendauky, sodiencuoiky;
         char typeFamily;
-
         public ElectricBill(string id, string name, double sodiendauky, double sodiencuoiky, char typeFamily)
         {
             this.id = id;
