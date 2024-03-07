@@ -57,6 +57,8 @@ namespace Beginer // Note: actual namespace depends on the project name.
 
             employeeList.getInfor();
             Console.WriteLine("Tong tien luong nhan vien: " + employeeList.getSumSalary());
+            Console.WriteLine("Nhap ten nhan vien can tim: ");
+            
             Console.ReadKey();
 
         }

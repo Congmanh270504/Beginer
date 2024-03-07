@@ -70,13 +70,23 @@ namespace Beginer
             foreach (var item in employees)
             {
                 Console.WriteLine(item.getSalary());
-                
+
             }
             foreach (var item in employees)
             {
                 sum += item.getSalary();
             }
             return (double)sum;
+        }
+        public void findName(string name)
+        {
+            foreach (var item in employees)
+            {
+                if (item.Name.Equals(name))
+                {
+                    item.getInfor();
+                }
+            }
         }
     }
 }
