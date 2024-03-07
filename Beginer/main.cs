@@ -62,6 +62,15 @@ namespace Beginer // Note: actual namespace depends on the project name.
             //employeeList.indexOf(employeeList.getHighestSalary());
             employeeList.sortDateWorkIncrease();
             employeeList.getInfor();
+            employeeList.Add(new Employee("4312a", "Manh", 9.0, 2012));
+            employeeList.Add(new Employee("765B", "Son", 8.0, 2013));
+            employeeList.Add(new Employee("078C", "Quy", 7.5, 2015));
+            employeeList.Add(new Employee("1234D", "Tan", 10, 2014));
+
+            employeeList.getInfor();
+            Console.WriteLine("Tong tien luong nhan vien: " + employeeList.getSumSalary());
+            Console.WriteLine("Nhap ten nhan vien can tim: ");
+            
             Console.ReadKey();
 
         }
