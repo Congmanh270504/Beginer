@@ -59,10 +59,6 @@ namespace Beginer
         }
         public void getInfor()
         {
-            //foreach (var item in employees)
-            //{
-            //    item.getInfor();
-            //}
             for (int i = 0; i < employees.LongCount(); i++)
             {
                 employees.ElementAt(i).getInfor();

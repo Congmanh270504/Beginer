@@ -1,5 +1,4 @@
-﻿using System;
-// crl R+ E shortcut get set atribute
+﻿// crl R+ E shortcut get set atribute
 namespace Beginer // Note: actual namespace depends on the project name.
 {
 
