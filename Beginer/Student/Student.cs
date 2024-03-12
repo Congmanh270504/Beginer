@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace Beginer
+namespace Beginer.Student
 {
     public class Student
     {
@@ -11,9 +11,9 @@ namespace Beginer
         double point;
         public Student(string _id, string _name, double _point)
         {
-            this.id = _id;
-            this.name = _name;
-            this.point = _point;
+            id = _id;
+            name = _name;
+            point = _point;
         }
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }

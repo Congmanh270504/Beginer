@@ -22,7 +22,7 @@ namespace Beginer
             this.id = id;
             this.name = name;
             this.salaryPoint = salaryPoint;
-            this.timeWork = timework;
+            timeWork = timework;
         }
         public string Name { get => name; set => name = value; }
         public string Id { get => id; set => id = value; }
@@ -59,6 +59,7 @@ namespace Beginer
         }
         public void getInfor()
         {
+           
             for (int i = 0; i < employees.LongCount(); i++)
             {
                 employees.ElementAt(i).getInfor();

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace Beginer
+namespace Beginer.Student
 {
     public class Student_Generic
     {
@@ -15,7 +15,7 @@ namespace Beginer
         {
             Console.WriteLine("Danh sach cac sinnh vien co diem lon hon 8: ");
 
-            foreach (var item in this.Student_List)
+            foreach (var item in Student_List)
             {
                 if (item.Point > 8)
                 {
@@ -25,7 +25,7 @@ namespace Beginer
         }
         public void findStudentByName(string name)
         {
-            foreach (var item in this.Student_List)
+            foreach (var item in Student_List)
             {
                 if (item.Name.ToString().ToLower().Equals(name.ToLower()))
                 {
@@ -36,7 +36,7 @@ namespace Beginer
         public void findStudentById(string id)
         {
             Console.WriteLine("Sinh vien can tim: ");
-            foreach (var item in this.Student_List)
+            foreach (var item in Student_List)
             {
                 if (item.Id.ToString().ToLower().Equals(id.ToLower()))
                 {
@@ -51,9 +51,9 @@ namespace Beginer
         public void xuatDS()
         {
             Console.WriteLine("Danh sach sinh vien: ");
-            foreach (var item in this.Student_List)
+            foreach (var item in Student_List)
             {
-                Console.WriteLine("Student {0}:{1} {2} {3}", this.Student_List.IndexOf(item), item.Id, item.Name, item.Point);
+                Console.WriteLine("Student {0}:{1} {2} {3}", Student_List.IndexOf(item), item.Id, item.Name, item.Point);
             }
         }
     }
