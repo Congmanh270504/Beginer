@@ -8,7 +8,8 @@
             employeesList.Add();
             //employeesList.Add(new Employee("4312a", "Manh", 1.0, 2013));
             employeesList.Employees[0].getInfor();
-            employeesList.interchangeTimeWork();
+            //employeesList.interchangeTimeWork();
+            employeesList.sortTimeWork();
             Console.WriteLine("Danh sach nhan vien sau khi sap xep: ");
             foreach (Employee employee in employeesList.Employees)
             {
@@ -92,6 +93,10 @@
                     }
                 }
             }
+        }
+        public void sortTimeWork() //Better way to sort list, using lambda expression, ultra simple ＼(￣▽￣)／
+        {
+            employees.Sort((x, y) => x.TimeWork.CompareTo(y.TimeWork));
         }
     }
 }
