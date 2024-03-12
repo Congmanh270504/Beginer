@@ -1,6 +1,6 @@
 ﻿namespace net2
 {
-    internal class main
+    internal class Program
     {
         static void Main(string[] args)
         {
@@ -21,8 +21,7 @@
     }
     public class Employee
     {
-        private
-        static long MLTT = 1500000;
+        private static long MLTT = 1500000;
         string id;
         string name;
         double salaryPoint;
@@ -74,6 +73,10 @@
             employees.Add(new Employee("765B", "Son", 2.0, 2008));
             employees.Add(new Employee("078C", "Quy", 3.5, 2015));
             employees.Add(new Employee("1234D", "Tan", 4.0, 2018));
+        }
+        public void Add(Employee employee) // Overload method Add, add employee to list, should be used when we want to add employee to list
+        {
+            employees.Add(employee);
         }
         public static void Swap<T>(IList<T> list, int indexA, int indexB)
         {

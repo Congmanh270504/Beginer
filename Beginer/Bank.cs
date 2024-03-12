@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Beginer
+﻿namespace Beginer
 {
     internal class Bank
     {
-        private
-        string name, id;
+        private string name, id;
         public long money;
         public Bank(string name, string id, long money)
         {
