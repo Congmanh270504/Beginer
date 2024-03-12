@@ -7,7 +7,13 @@
             EmployeeList employeesList = new EmployeeList();
             employeesList.Add();
             //employeesList.Add(new Employee("4312a", "Manh", 1.0, 2013));
-            Console.WriteLine(employeesList[0]);
+            employeesList.Employees[0].getInfor();
+            employeesList.interchangeTimeWork();
+            Console.WriteLine("Danh sach nhan vien sau khi sap xep: ");
+            foreach (Employee employee in employeesList.Employees)
+            {
+                employee.getInfor();
+            }
 
             Console.ReadKey();
         }
@@ -53,7 +59,7 @@
             Console.WriteLine("He so luong: " + salaryPoint);
             Console.WriteLine("Thoi gian vao lam: " + timeWork + "\n");
         }
-       
+
     }
 
     public class EmployeeList
@@ -68,21 +74,21 @@
             employees.Add(new Employee("078C", "Quy", 3.5, 2015));
             employees.Add(new Employee("1234D", "Tan", 4.0, 2018));
         }
-        public void swap<T>(List<T> list, ref int a, ref int b)
+        public static void Swap<T>(IList<T> list, int indexA, int indexB)
         {
-            T temp = list[a];
-            list[a] = list[b];
-            list[b] = temp;
+            T tmp = list[indexA];
+            list[indexA] = list[indexB];
+            list[indexB] = tmp;
         }
-        public void interchangeTimeWork(List<Employee> employees)
+        public void interchangeTimeWork()
         {
             for (int i = 0; i < employees.LongCount() - 1; i++)
             {
                 for (int j = i + 1; j < employees.LongCount(); j++)
                 {
-                    if (employees.ElementAt(i).TimeWork > employees.ElementAt(j).TimeWork)
+                    if (employees[i].TimeWork > employees[j].TimeWork)
                     {
-                        swap(employees, ref i, ref j);
+                        Swap(employees, i, j);
                     }
                 }
             }
