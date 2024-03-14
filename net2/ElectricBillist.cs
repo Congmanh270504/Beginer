@@ -101,15 +101,9 @@ namespace main2
         }
         public void checkSwap()
         {
-            swap(electricBills, 0, 1);
+            swap(electricBills, 0, 1);// swap ko xai thg vao main dc
             output();
         }
-        //public IList<T> Swap<T>(this IList<T> list, int indexA, int indexB)
-        //{
-        //    T tmp = list[indexA];
-        //    list[indexA] = list[indexB];
-        //    list[indexB] = tmp;
-        //    return list;
-        //}
+       
     }
 }
