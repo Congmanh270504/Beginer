@@ -6,10 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beginer", "Beginer\Beginer.csproj", "{3583071D-439B-4053-8602-FD9D56CB7B62}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net2", "net2\net2.csproj", "{17D901B1-545A-4FD6-904E-442BEF0547D5}"
+<<<<<<< HEAD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xml2", "xml2\xml2.csproj", "{6E418422-D144-4731-B82B-EB539805CE03}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operator", "Operator\Operator.csproj", "{7BBDF836-F6F6-4254-8934-F2A35F741529}"
+=======
+>>>>>>> 3bc9d3b30dee98f2b9bf3aa69cb5554e851d1580
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
