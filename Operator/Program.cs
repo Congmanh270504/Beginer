@@ -12,7 +12,7 @@ namespace Operator
             //var q = phanso.Equals(a, b);
             //int e = (int)c;
             //Console.WriteLine("{0}/{1}", c.Tu, c.Mau);
-            Console.WriteLine(q);
+            Console.WriteLine();
             //Console.WriteLine("{0}/{1}", p.Tu, p.Mau);
         }
     }
