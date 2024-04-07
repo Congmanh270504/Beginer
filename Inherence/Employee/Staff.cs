@@ -89,13 +89,10 @@ namespace Inherence.Employee
         }
         public void getInfor()
         {
-            //Console.WriteLine("Ma nhan vien: " + Id);
-            //Console.WriteLine("Ten nhan vien: " + Name);
-            //Console.WriteLine("Thoi gian vao lam: " + Daywork);
+            
             base.getInfor();
             Console.WriteLine("Chuc vu: " + position);
             Console.WriteLine("He so chuc vu: " + factor);
-            //Console.WriteLine("Luong: " + getSalary());
         }
 
     }

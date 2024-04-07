@@ -6,13 +6,16 @@ namespace Interface
     {
         public static void Main(string[] args)
         {
-            GrainCoffee grainCoffee = new GrainCoffee();
-            grainCoffee.setInfor();
+            GrainCoffee grainCoffee = new GrainCoffee("13DH", "Coffe Hat", 20, 23000);
             grainCoffee.getInfor();
 
-            PureGrindCoffee pureGrindCoffee = new PureGrindCoffee();
-            pureGrindCoffee.setInfor();
+            PureGrindCoffee pureGrindCoffee = new PureGrindCoffee("14DH", "Coffe xay nguyen chat", 30, 20000);
             pureGrindCoffee.getInfor();
+
+            ScentGrindCoffee scentGrindCoffee = new ScentGrindCoffee("14DH", "Coffe huong lieu", 30, 25000, 15, 50000);
+            scentGrindCoffee.getInfor();
+            PackCoffee packCoffee = new PackCoffee("14DH", "Coffe goi", 30, 30000, "giay");
+            packCoffee.getInfor();
             Console.ReadKey();
 
         }
@@ -28,7 +31,6 @@ namespace Interface
         public long Bill { get => bill; set => bill = value; }
 
         public abstract double getCost();
-        public abstract void setInfor();
         public abstract void getInfor();
 
     }
@@ -53,6 +55,13 @@ namespace Interface
 
     class GrainCoffee : Coffee, ISupportEco
     {
+        public GrainCoffee(string id, string name, int quantity, long bill)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Quantity = quantity;
+            this.Bill = bill;
+        }
         public override double getCost()
         {
             return (double)(Quantity * Bill) - Sup();
@@ -61,25 +70,9 @@ namespace Interface
         {
             return (double)Quantity * 10;
         }
-        public override void setInfor()
-        {
-            Console.WriteLine("--Grain Coffee--");
-            Console.Write("ID:");
-            string id = Console.ReadLine();
-            Id = id;
-            Console.Write("Name:");
-            string name = Console.ReadLine();
-            Name = name;
-            Console.Write("So luong:");
-            int quantity = Convert.ToInt32(Console.ReadLine());
-            Quantity = quantity;
-            Console.Write("Gia tien:");
-            long bill = Convert.ToInt64(Console.ReadLine());
-            Bill = bill;
-        }
         public override void getInfor()
         {
-            Console.WriteLine("--Grain Coffee--");
+            Console.WriteLine("\t--Grain Coffee--");
             double check = getCost();
             Console.WriteLine("Id:{0}\nName:{1}\nQuantiny:{2}\nBill:{3}\nCost:{4} ", Id, Name, Quantity, Bill, getCost());
         }
@@ -88,6 +81,14 @@ namespace Interface
 
     class PureGrindCoffee : Coffee, ISupportEco, IGrindCoffee
     {
+
+        public PureGrindCoffee(string id, string name, int quantity, long bill)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Quantity = quantity;
+            this.Bill = bill;
+        }
         public override double getCost()
         {
             return (double)Quantity * Bill + grindWage();
@@ -107,25 +108,9 @@ namespace Interface
         {
             return Quantity * 12;
         }
-        public override void setInfor()
-        {
-            Console.WriteLine("--Pure Grind Coffee--");
-            Console.Write("ID:");
-            string id = Console.ReadLine();
-            Id = id;
-            Console.Write("Name:");
-            string name = Console.ReadLine();
-            Name = name;
-            Console.Write("Quantity:");
-            int quantity = Convert.ToInt32(Console.ReadLine());
-            Quantity = quantity;
-            Console.Write("Bill:");
-            long bill = Convert.ToInt64(Console.ReadLine());
-            Bill = bill;
-        }
         public override void getInfor()
         {
-            Console.WriteLine("Pure Grind Coffee ");
+            Console.WriteLine("\t--Pure Grind Coffee--");
             Console.WriteLine("Id:{0}\nName:{1}\nQuantiny:{2}\nBill:{3}\nCost:{4} ", Id, Name, Quantity, Bill, getCost());
         }
     }
@@ -133,6 +118,16 @@ namespace Interface
     {
         int quantityScent;
         long costScent;
+        public ScentGrindCoffee(string id, string name, int quantity, long bill, int quantityScent, long costScent)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Quantity = quantity;
+            this.Bill = bill;
+            this.quantityScent = quantityScent;
+            this.costScent = costScent;
+        }
+
         public override double getCost()
         {
             return (double)Quantity * Bill + quantityScent * costScent + bartenCost();
@@ -141,17 +136,23 @@ namespace Interface
         {
             return Quantity * 2;
         }
-        public override void setInfor()
-        {
-            Console.WriteLine("");
-        }
         public override void getInfor()
         {
+            Console.WriteLine("\t--Scent Grind Coffee-- ");
+            Console.WriteLine("Id:{0}\nName:{1}\nQuantiny:{2}\nBill:{3}\nCost:{4} ", Id, Name, Quantity, Bill, getCost());
         }
     }
     class PackCoffee : Coffee
     {
         string material;
+        public PackCoffee(string id, string name, int quantity, long bill, string material)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Quantity = quantity;
+            this.Bill = bill;
+            this.material = material;
+        }
 
         public string Material { get => material; set => material = value; }
 
@@ -174,12 +175,11 @@ namespace Interface
                 return packPlastic();
             }
         }
-        public override void setInfor()
-        {
-            Console.WriteLine("");
-        }
+
         public override void getInfor()
         {
+            Console.WriteLine("\t--Pack Coffee-- ");
+            Console.WriteLine("Id:{0}\nName:{1}\nQuantiny:{2}\nBill:{3}\nCost:{4} ", Id, Name, Quantity, Bill, getCost());
         }
     }
 }
