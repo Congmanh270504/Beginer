@@ -4,6 +4,12 @@
     {
         static void Main(string[] args)
         {
+            AtHome atHome = new AtHome(2);
+            atHome.getInfor();
+            SmallStadium smallStadium = new SmallStadium(5);
+            smallStadium.getInfor();
+            LargeStadium largeStadium = new LargeStadium(100);
+            largeStadium.getInfor();
             Console.ReadKey();
 
         }
@@ -14,7 +20,7 @@
         int numberRepertoire;
         DateTime datestart;
         double bill, surchange;
-       public  static double taxpoint = 0.15;
+        public static double taxpoint = 0.15;
 
         public string Id { get => id; set => id = value; }
         public double Bill { get => bill; set => bill = value; }
@@ -48,7 +54,7 @@
                 }
             }
         }
-      
+
 
         public ContractSinger(string id, string name, double bill)
         {
@@ -64,11 +70,16 @@
             return Bill * NumberRepertoire + Surchange;
         }
         public abstract double entertamentCost();
+
+    }
+    interface ISupport
+    {
+        public double getSupportCost();
     }
     class AtHome : ContractSinger
     {
         int distance;
-        AtHome(int distance) : base()
+        public AtHome(int distance) : base()
         {
             this.distance = distance;
         }
@@ -76,37 +87,62 @@
         {
             if (this.distance < 20)
             {
-                return getCost() + this.distance * 400000;
+                return taxpoint * (getCost() + this.distance * 400000);
             }
             else
             {
                 if (this.distance * 300000 > 15000000)
                 {
-                    return 0;
+                    return 1;
                 }
-                return getCost() + this.distance * 300000;
+                return taxpoint * (getCost() + this.distance * 300000);
             }
         }
-        
+        public void getInfor()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("--At Home--");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Ten ca si:{0}\nGia ca:{1}", Name, entertamentCost());
+        }
 
     }
-    class SmallStadium : ContractSinger
+    class SmallStadium : ContractSinger, ISupport
     {
         int scale;
-        SmallStadium(int scale) : base()
+        public SmallStadium(int scale) : base()
         {
             this.scale = scale;
         }
         public override double entertamentCost()
         {
-            return getCost() + 10000000 + 2000000 * NumberRepertoire;
+            return taxpoint * (getCost() + 10000000 + 2000000 * NumberRepertoire);
         }
-        
+
+        public double getSupportCost()
+        {
+            if (this.scale > 1 && this.scale < 3)
+            {
+                return entertamentCost() - 1000000;
+            }
+            else
+            {
+                return entertamentCost();
+            }
+        }
+        public void getInfor()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("--Small Stadium--");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Ten ca si:{0}\nGia ca:{1}", Name, getSupportCost());
+        }
+
     }
-    class LargeStadium : ContractSinger
+    class LargeStadium : ContractSinger, ISupport
     {
-        int audiences;
-        LargeStadium(int audiences) : base()
+        long audiences;
+        public LargeStadium(long audiences) : base()
         {
             this.audiences = audiences;
         }
@@ -114,13 +150,32 @@
         {
             if (this.audiences < 1000000)
             {
-                return getCost() + 30000000;
+                return taxpoint * (getCost() + 30000000);
             }
             else
             {
-                return getCost() + 50000000;
+                return taxpoint * (getCost() + 50000000);
             }
         }
-        
+        public double getSupportCost()
+        {
+            long checkCost = audiences * 1000000;
+            if (checkCost <= 20000000)
+            {
+                return entertamentCost() - checkCost;
+            }
+            else
+            {
+                return entertamentCost();
+            }
+        }
+        public void getInfor()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("--Large Stadium--");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Ten ca si:{0}\nGia ca:{1}", Name, getSupportCost());
+        }
+
     }
 }
