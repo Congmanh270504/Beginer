@@ -14,7 +14,7 @@
         int numberRepertoire;
         DateTime datestart;
         double bill, surchange;
-        static double taxpoint = 0.15;
+       public  static double taxpoint = 0.15;
 
         public string Id { get => id; set => id = value; }
         public double Bill { get => bill; set => bill = value; }
@@ -48,6 +48,7 @@
                 }
             }
         }
+      
 
         public ContractSinger(string id, string name, double bill)
         {
@@ -86,6 +87,7 @@
                 return getCost() + this.distance * 300000;
             }
         }
+        
 
     }
     class SmallStadium : ContractSinger
@@ -99,6 +101,7 @@
         {
             return getCost() + 10000000 + 2000000 * NumberRepertoire;
         }
+        
     }
     class LargeStadium : ContractSinger
     {
@@ -109,14 +112,15 @@
         }
         public override double entertamentCost()
         {
-            if(this.audiences < 1000000)
+            if (this.audiences < 1000000)
             {
-            return getCost() + 30000000;
+                return getCost() + 30000000;
             }
             else
             {
                 return getCost() + 50000000;
             }
         }
+        
     }
 }
