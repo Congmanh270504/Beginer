@@ -61,6 +61,26 @@
             }
 
         }
+        static void MainAverageP(string[] args)
+        {
+            Theory OOP = new Theory("13DHTH03", "Huong doi tuong", 2, 8.9, 7.6);
+            Console.WriteLine("Mon: {0}", OOP.Name);
+            Console.WriteLine("Diem trung binh: " + String.Format("{0:0.000}", OOP.getAverageP()));
+            Console.Write("Diem he chu:");
+            OOP.convertCharP();
+
+            Pratice techniques = new Pratice("13DHTH04", "Ki thuat lap trinh", 2, 8.9, 7.6, 5.6);
+            Console.WriteLine("Mon: {0}", techniques.Name);
+            Console.WriteLine("Diem trung binh: " + String.Format("{0:0.000}", techniques.getAverageP()));
+            Console.Write("Diem he chu:");
+            techniques.convertCharP();
+
+            Project web = new Project("13DHTH04", "TKW", 2, 8.9, 7.6);
+            Console.WriteLine("Mon: {0}", web.Name);
+            Console.WriteLine("Diem trung binh: " + String.Format("{0:0.000}", web.getAverageP()));
+            Console.Write("Diem he chu:");
+            web.convertCharP();
+        }
     }
      class Theory : Subject
     {

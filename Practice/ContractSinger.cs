@@ -1,19 +1,7 @@
-﻿namespace Practice
-{
-    internal class Practice
-    {
-        static void Main(string[] args)
-        {
-            AtHome atHome = new AtHome(2);
-            atHome.getInfor();
-            SmallStadium smallStadium = new SmallStadium(5);
-            smallStadium.getInfor();
-            LargeStadium largeStadium = new LargeStadium(100);
-            largeStadium.getInfor();
-            Console.ReadKey();
+﻿using System.Xml.Linq;
 
-        }
-    }
+namespace Practice
+{
     abstract class ContractSinger
     {
         string id, name;
@@ -22,48 +10,57 @@
         double bill, surchange;
         public static double taxpoint = 0.15;
 
-        public string Id { get => id; set => id = value; }
+        public string Id
+        {
+            get
+            {
+                if (!id.StartsWith("HD"))
+                {
+                    throw new Exception("Error Id name !!");
+                }
+                else
+                {
+                    for (int i = 2; i < name.Length; i++)
+                    {
+                        if (!(name[i] > '0' && name[i] < '9'))
+                        {
+                            throw new Exception("Error Id name !!");
+                        }
+                    }
+                }
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
         public double Bill { get => bill; set => bill = value; }
-        public string Name { get => name; set => name = value; }
+        public string Name
+        {
+            get => name; set => name = value;
+        }
         public int NumberRepertoire { get => numberRepertoire; set => numberRepertoire = value; }
         public double Surchange { get => surchange; set => surchange = value; }
 
         public ContractSinger()
         {
-            this.id = "HD3418";
-            this.name = "Ly Khong Hay";
-            this.NumberRepertoire = 3;
-            this.datestart = new DateTime(2020, 10, 24);
-            this.bill = 4000000;
-            this.Surchange = 2000000;
+            id = "HD3418";
+            name = "Ly Khong Hay";
+            NumberRepertoire = 3;
+            datestart = new DateTime(2020, 10, 24);
+            bill = 4000000;
+            Surchange = 2000000;
         }
-        public void checkName()
-        {
-            if (!this.id.StartsWith("HD"))
-            {
-                throw new Exception("Error Id name !!");
-            }
-            else
-            {
-                for (int i = 2; i < name.Length; i++)
-                {
-                    if (!(this.name[i] > '0' && this.name[i] < '9'))
-                    {
-                        throw new Exception("Error Id name !!");
-                    }
-                }
-            }
-        }
-
 
         public ContractSinger(string id, string name, double bill)
         {
             this.id = id;
             this.name = name;
-            this.NumberRepertoire = 2;
-            this.datestart = new DateTime(2020, 10, 24);
+            NumberRepertoire = 2;
+            datestart = new DateTime(2020, 10, 24);
             this.bill = bill;
-            this.Surchange = 0;
+            Surchange = 0;
         }
         public double getCost()
         {
@@ -79,23 +76,23 @@
     class AtHome : ContractSinger
     {
         int distance;
-        public AtHome(int distance) : base()
+        public AtHome(string id, string name, double bill, int distance) : base(id, name, bill)
         {
             this.distance = distance;
         }
         public override double entertamentCost()
         {
-            if (this.distance < 20)
+            if (distance < 20)
             {
-                return taxpoint * (getCost() + this.distance * 400000);
+                return taxpoint * (getCost() + distance * 400000);
             }
             else
             {
-                if (this.distance * 300000 > 15000000)
+                if (distance * 300000 > 15000000)
                 {
                     return 1;
                 }
-                return taxpoint * (getCost() + this.distance * 300000);
+                return taxpoint * (getCost() + distance * 300000);
             }
         }
         public void getInfor()
@@ -110,7 +107,7 @@
     class SmallStadium : ContractSinger, ISupport
     {
         int scale;
-        public SmallStadium(int scale) : base()
+        public SmallStadium(string id, string name, double bill, int scale) : base(id, name, bill)
         {
             this.scale = scale;
         }
@@ -121,7 +118,7 @@
 
         public double getSupportCost()
         {
-            if (this.scale > 1 && this.scale < 3)
+            if (scale > 1 && scale < 3)
             {
                 return entertamentCost() - 1000000;
             }
@@ -142,7 +139,7 @@
     class LargeStadium : ContractSinger, ISupport
     {
         long audiences;
-        public LargeStadium(long audiences) : base()
+        public LargeStadium(string id, string name, double bill, long audiences) : base(id, name, bill)
         {
             this.audiences = audiences;
         }
@@ -171,6 +168,7 @@
         }
         public void getInfor()
         {
+            
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("--Large Stadium--");
             Console.ForegroundColor = ConsoleColor.White;
