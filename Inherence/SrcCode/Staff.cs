@@ -10,7 +10,6 @@ namespace Inherence.Employee
     public class Staff
     {
         long HSL = 1000;
-
         string id, name, rank;
         int daywork, room;
         long salary;
@@ -28,28 +27,13 @@ namespace Inherence.Employee
         public int Daywork { get => daywork; set => daywork = value; }
         public double Conpetition { get => conpetition; set => conpetition = value; }
 
-        public string Race()
+        public double Race()
         {
             if (daywork > 25)
             {
-                return "A";
-            }
-            else if (daywork > 22)
-            {
-                return "B";
-            }
-            else
-            {
-                return "C";
-            }
-        }
-        public double getCompetition()
-        {
-            if (Race().Equals("A"))
-            {
                 return 1;
             }
-            else if (Race().Equals("B"))
+            else if (daywork > 22)
             {
                 return 0.75;
             }
@@ -60,7 +44,7 @@ namespace Inherence.Employee
         }
         public virtual long getSalary()
         {
-            return Convert.ToInt64(1210 * getCompetition() * HSL);
+            return Convert.ToInt64(1210 * Race() * HSL);
         }
 
         public void getInfor()

@@ -6,16 +6,16 @@ namespace Interface
     {
         public static void Main(string[] args)
         {
-            GrainCoffee grainCoffee = new GrainCoffee("13DH", "Coffe Hat", 20, 23000);
-            grainCoffee.getInfor();
+            CoffeeBeans coffeBeans = new CoffeeBeans("13DH", "Coffe Hat", 20, 23000);
+            coffeBeans.getInfor();
 
-            PureGrindCoffee pureGrindCoffee = new PureGrindCoffee("14DH", "Coffe xay nguyen chat", 30, 20000);
-            pureGrindCoffee.getInfor();
+            NaturalCoffee naturalCoffe = new NaturalCoffee("14DH", "Coffe xay nguyen chat", 30, 20000);
+            naturalCoffe.getInfor();
 
-            ScentGrindCoffee scentGrindCoffee = new ScentGrindCoffee("14DH", "Coffe huong lieu", 30, 25000, 15, 50000);
-            scentGrindCoffee.getInfor();
-            PackCoffee packCoffee = new PackCoffee("14DH", "Coffe goi", 30, 30000, "giay");
-            packCoffee.getInfor();
+            FlavorCoffee flavorCoffe = new FlavorCoffee("14DH", "Coffe huong lieu", 30, 25000, 15, 50000);
+            flavorCoffe.getInfor();
+            PackCoffee packCoffe = new PackCoffee("14DH", "Coffe goi", 30, 30000, "giay");
+            packCoffe.getInfor();
             Console.ReadKey();
 
         }
@@ -30,79 +30,65 @@ namespace Interface
         public int Quantity { get => quantity; set => quantity = value; }
         public long Bill { get => bill; set => bill = value; }
 
-        public abstract double getCost();
-        public abstract void getInfor();
+        public Coffee(string id, string name, int quantity, long bill)
+        {
+            this.id = id;
+            this.name = name;
+            this.quantity = quantity;
+            this.bill = bill;
+        }
 
+        public double getCost()
+        {
+            return Quantity * Bill;
+        }
+        public abstract double getCostItem();
+        public abstract void getInfor();
     }
 
     interface ISupportEco
     {
         public double Sup();
     }
-    interface IGrindCoffee
+    class CoffeeBeans : Coffee, ISupportEco
     {
-        public double grindWage();
-    }
-    interface IBartending
-    {
-        public double bartenCost();
-    }
-    interface IPackCoffee
-    {
-        public double packPapper();
-        public double packPlastic();
-    }
-
-    class GrainCoffee : Coffee, ISupportEco
-    {
-        public GrainCoffee(string id, string name, int quantity, long bill)
+        public CoffeeBeans(string id, string name, int quantity, long bill) : base(id, name, quantity, bill)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Quantity = quantity;
-            this.Bill = bill;
         }
-        public override double getCost()
+        public override double getCostItem()
         {
-            return (double)(Quantity * Bill) - Sup();
+            return getCost() - Sup();
         }
         public double Sup()
         {
-            return (double)Quantity * 10;
+            return Quantity * 10;
         }
         public override void getInfor()
         {
-            Console.WriteLine("\t--Grain Coffee--");
-            double check = getCost();
-            Console.WriteLine("Id:{0}\nName:{1}\nQuantiny:{2}\nBill:{3}\nCost:{4} ", Id, Name, Quantity, Bill, getCost());
-        }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\t--Coffee Beans--");
+            Console.ForegroundColor = ConsoleColor.White;
 
+            Console.WriteLine("\tId:{0}\n\tName:{1}\n\tQuantiny:{2}\n\tBill:{3}\n\tCost:{4}", Id, Name, Quantity, Bill, getCost());
+        }
     }
-
-    class PureGrindCoffee : Coffee, ISupportEco, IGrindCoffee
+    class NaturalCoffee : Coffee, ISupportEco
     {
+        public NaturalCoffee(string id, string name, int quantity, long bill) : base(id, name, quantity, bill)
+        {
 
-        public PureGrindCoffee(string id, string name, int quantity, long bill)
-        {
-            this.Id = id;
-            this.Name = name;
-            this.Quantity = quantity;
-            this.Bill = bill;
         }
-        public override double getCost()
-        {
-            return (double)Quantity * Bill + grindWage();
-        }
-        public double grindWage()
+        public int congxay()
         {
             if (Quantity < 100)
             {
                 return 100 * Quantity;
             }
-            else
-            {
-                return 95 * Quantity;
-            }
+            return 95 * Quantity;
+        }
+        public override double getCostItem()
+        {
+            return getCost() + congxay() - Sup();
         }
         public double Sup()
         {
@@ -110,76 +96,82 @@ namespace Interface
         }
         public override void getInfor()
         {
-            Console.WriteLine("\t--Pure Grind Coffee--");
-            Console.WriteLine("Id:{0}\nName:{1}\nQuantiny:{2}\nBill:{3}\nCost:{4} ", Id, Name, Quantity, Bill, getCost());
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\t--Natural Coffee--");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("\tId:{0}\n\tName:{1}\n\tQuantiny:{2}\n\tBill:{3}\n\tCost:{4}", Id, Name, Quantity, Bill, getCost());
         }
     }
-    class ScentGrindCoffee : Coffee, IBartending
+    class FlavorCoffee : Coffee
     {
-        int quantityScent;
-        long costScent;
-        public ScentGrindCoffee(string id, string name, int quantity, long bill, int quantityScent, long costScent)
+        int flavor_quantity;
+        long flavor_bill;
+        public FlavorCoffee(string id, string name, int quantity, long bill, int flavor_quantity, long flavor_bill) : base(id, name, quantity, bill)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Quantity = quantity;
-            this.Bill = bill;
-            this.quantityScent = quantityScent;
-            this.costScent = costScent;
+            this.flavor_quantity = flavor_quantity;
+            this.flavor_bill = flavor_bill;
         }
 
-        public override double getCost()
+        public override double getCostItem()
         {
-            return (double)Quantity * Bill + quantityScent * costScent + bartenCost();
-        }
-        public double bartenCost()
-        {
-            return Quantity * 2;
+            return getCost() + flavor_bill * flavor_quantity + Quantity * 2;
         }
         public override void getInfor()
         {
-            Console.WriteLine("\t--Scent Grind Coffee-- ");
-            Console.WriteLine("Id:{0}\nName:{1}\nQuantiny:{2}\nBill:{3}\nCost:{4} ", Id, Name, Quantity, Bill, getCost());
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\t--Flavor Coffee-- ");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("\tId:{0}\n\tName:{1}\n\tQuantiny:{2}\n\tBill:{3}\n\tCost:{4}", Id, Name, Quantity, Bill, getCost());
         }
     }
     class PackCoffee : Coffee
     {
         string material;
-        public PackCoffee(string id, string name, int quantity, long bill, string material)
+        public PackCoffee(string id, string name, int quantity, long bill, string material) : base(id, name, quantity, bill)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Quantity = quantity;
-            this.Bill = bill;
             this.material = material;
         }
 
-        public string Material { get => material; set => material = value; }
+        public string Material
+        {
 
-        public double packPapper()
-        {
-            return Quantity * Bill * 110 / 100;
+            get
+            {
+                if (!material.Equals("giay") || !material.Equals("nhua"))
+                {
+                    throw new Exception("Material just: 1.giay 2.nhua!!");
+                }
+                else
+                {
+                    return material;
+                }
+            }
+            set
+            {
+                material = value;
+            }
         }
-        public double packPlastic()
-        {
-            return Quantity * Bill * 120 / 100;
-        }
-        public override double getCost()
+        public override double getCostItem()
         {
             if (Material.Equals("giay"))
             {
-                return packPapper();
+                return getCost() * 1.1;
             }
             else
             {
-                return packPlastic();
+                return getCost() * 1.2;
             }
         }
-
         public override void getInfor()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\t--Pack Coffee-- ");
-            Console.WriteLine("Id:{0}\nName:{1}\nQuantiny:{2}\nBill:{3}\nCost:{4} ", Id, Name, Quantity, Bill, getCost());
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("\tId:{0}\n\tName:{1}\n\tQuantiny:{2}\n\tMaterial:{3}\n\tBill:{4}\n\tCost:{4} ", Id, Name, Material, Quantity, Bill, getCost());
         }
     }
+
 }
