@@ -38,7 +38,7 @@ namespace Practice
         public double Bill { get => bill; set => bill = value; }
         public string Name
         {
-            get => name; set => name = value;
+            get; set;
         }
         public int NumberRepertoire { get => numberRepertoire; set => numberRepertoire = value; }
         public double Surchange { get => surchange; set => surchange = value; }
@@ -168,7 +168,7 @@ namespace Practice
         }
         public void getInfor()
         {
-            
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("--Large Stadium--");
             Console.ForegroundColor = ConsoleColor.White;

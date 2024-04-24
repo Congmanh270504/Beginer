@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace Beginer.Student
+namespace Beginer
 {
     public class Student_Generic
     {
@@ -55,6 +55,19 @@ namespace Beginer.Student
             {
                 Console.WriteLine("Student {0}:{1} {2} {3}", Student_List.IndexOf(item), item.Id, item.Name, item.Point);
             }
+        }
+        public void menu()
+        {
+            Console.WriteLine("1.Danh sach cac sinnh vien co diem lon hon 8");
+            Console.WriteLine("2.Tim sinh vien");
+            Console.WriteLine("0.Thoat chuong trinh");
+        }
+        public void menu2()
+        {
+            Console.WriteLine("Tim theo: ");
+            Console.WriteLine("1.Theo ten");
+            Console.WriteLine("2.Theo id");
+            Console.WriteLine("0.Thoat chuong trinh");
         }
     }
 }
