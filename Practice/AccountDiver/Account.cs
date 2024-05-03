@@ -9,7 +9,7 @@ namespace Practice.AccountDiver
     class Account
     {
         string username, password, phone, status;
-        public Account(string username, string password, string phone, string status)
+        public Account(string username, string password, string status, string phone)
         {
             this.username = username;
             this.password = password;
@@ -31,7 +31,7 @@ namespace Practice.AccountDiver
         {
             get
             {
-                if (!status.Equals("Online") || !status.Equals("Offline"))
+                if (!status.Equals("Online") && !status.Equals("Offline"))
                 {
                     throw new Exception("Wrong status type !");
                 }

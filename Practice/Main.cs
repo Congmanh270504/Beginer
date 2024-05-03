@@ -1,4 +1,5 @@
 ﻿using Practice.ABC;
+using Practice.AccountDiver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace Practice
         {
             //mainContractSinger(args);
             //  mainEmployee(args);
-            mainABC(args);
+            //mainABC(args);
+            mainAccount(args);
             Console.ReadKey();
         }
         static void mainContractSinger(string[] args)
@@ -41,6 +43,12 @@ namespace Practice
             Manager Linh = new Manager("13M", "Linh", "Thac si", "Nuoc ngoai", 0.6, 1, "Truong phong", 0.5);
 
             Linh.getInfor();
+            Console.ReadKey();
+        }
+        static void mainAccount(string[] args)
+        {
+            Customer Manh = new Customer("Cong Manh", "123456", "0987276613", "Offline", "Normal");
+            Manh.getInfor();
             Console.ReadKey();
         }
     }
