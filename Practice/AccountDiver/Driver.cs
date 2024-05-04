@@ -9,29 +9,27 @@ namespace Practice.AccountDiver
     abstract class Driver : Customer
     {
         string id, name, typeDiver;
-        string start, finish;
         int distance;
-        int time = DateTime.Now.Hour;
+        DateTime time = DateTime.Now;
 
-        public Driver(string username, string password, string status, string phone, string typeCustomer, string id, string name, string typeDiver, string start, string finish, int distance, int time) : base(username, password, status, phone, typeCustomer)
+        public Driver(string username, string status, string phone, string typeCustomer, string id, string name, string typeDiver, int distance) : base(username, status, phone, typeCustomer)
         {
             this.typeDiver = typeDiver;
-            this.start = start;
-            this.finish = finish;
+            this.id = id;
+            this.name = name;
             this.distance = distance;
-            this.time = time;
         }
-        public string Start { get => start; set => start = value; }
-        public string Finish { get => finish; set => finish = value; }
+
         public int Distance { get => distance; set => distance = value; }
-        public int Time { get => time; set => time = value; }
+        public DateTime Time { get => time; set => time = value; }
+        public string Id { get => id; set => id = value; }
 
 
         public string TypeDiver
         {
             get
             {
-                if (!typeDiver.Equals("Moto bike") || !typeDiver.Equals("Car") || !typeDiver.Equals("Truck"))
+                if (!typeDiver.Equals("Moto bike") && !typeDiver.Equals("Car") && !typeDiver.Equals("Truck"))
                 {
                     throw new Exception("Wrong Diver type !");
                 }
@@ -40,6 +38,7 @@ namespace Practice.AccountDiver
             set { typeDiver = value; }
         }
 
+        public string Name { get => name; set => name = value; }
 
         public int getLocationCustomer()
         {
@@ -54,6 +53,12 @@ namespace Practice.AccountDiver
                 return getCost() * 90 / 100;
             }
             return getCost();
+        }
+        public new virtual void getInfor()
+        {
+
+            Console.WriteLine("Your driver: ");
+            Console.WriteLine("ID:{0}\tDriver name:{1}\tUsername:{2}\tPhone:{3}\tType driver:{4}\tStatus:{5}\tDistance:{6}", Id, Name, Username, Phone, TypeDiver, Status, Distance);
         }
 
     }

@@ -9,7 +9,7 @@ namespace Practice.AccountDiver._3__type_driver
     internal class Truck : Driver, IBonus
     {
         double weight;
-        public Truck(string username, string password, string status, string phone, string typeCustomer, string id, string name, string typeDiver, string start, string finish, int distance, int time, double weight) : base(username, password, status, phone, typeCustomer, id, name, typeDiver, start, finish, distance, time)
+        public Truck(string username, string status, string phone, string typeCustomer, int distance, string id, string name, string typeDiver, double weight) : base(username, status, phone, typeCustomer, id, name, typeDiver, distance)
         {
             this.weight = weight;
         }
@@ -25,15 +25,15 @@ namespace Practice.AccountDiver._3__type_driver
                 {
                     if (i < 5)
                     {
-                        sum += 60000;
+                        sum += 12000;
                     }
                     else if (i < 10)
                     {
-                        sum += 50000;
+                        sum += 5000;
                     }
                     else
                     {
-                        sum += sum + (Distance - 10) * 30500;
+                        sum += 30500;
                     }
                 }
                 return sum;
@@ -45,15 +45,15 @@ namespace Practice.AccountDiver._3__type_driver
                 {
                     if (i < 5)
                     {
-                        sum += 70000;
+                        sum += 12000;
                     }
                     else if (i < 10)
                     {
-                        sum += 60000;
+                        sum += 5000;
                     }
                     else
                     {
-                        sum += sum + (Distance - 10) * 40500;
+                        sum += 30500;
                     }
                 }
                 return sum;
@@ -61,16 +61,21 @@ namespace Practice.AccountDiver._3__type_driver
         }
         public override long payBackCompy()
         {
-            return getCost() * 15 / 100;
+            return getCost() * 85 / 100;
         }
         public long bonus()
         {
-            long salary = getCost();
+            long salary = payBackCompy();
             if (salary > 3000000)
             {
                 return salary + 300000;
             }
             return salary;
+        }
+        public override void getInfor()
+        {
+            base.getInfor();
+            Console.WriteLine("Weight:{0}\tCost:{1}", Weight, bonus());
         }
     }
 }

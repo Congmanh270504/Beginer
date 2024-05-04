@@ -9,11 +9,10 @@ namespace Practice.AccountDiver
     class Car : Driver, IBonus
     {
         int space;
-        public Car(string username, string password, string status, string phone, string typeCustomer, string id, string name, string typeDiver, string start, string finish, int distance, int time, int space) : base(username, password, status, phone, typeCustomer, id, name, typeDiver, start, finish, distance, time)
+        public Car(string username, string status, string phone, string typeCustomer,int distance, string id, string name, string typeDiver, int space) : base(username, status, phone, typeCustomer, id, name, typeDiver,distance)
         {
             this.space = space;
         }
-
 
         public int Space
         {
@@ -36,63 +35,62 @@ namespace Practice.AccountDiver
             int sum = 0;
             if (Space == 4)
             {
-                if (Distance == 1)
-                {
-                    return 7500;
-                }
                 for (int i = 0; i < Distance; i++)
                 {
                     if (i < 2)
                     {
-                        sum += 15000;
+                        sum += 7500;
                     }
                     else if (i < 7)
                     {
-                        sum += 12000;
+                        sum += 2400;
                     }
                     else
                     {
-                        sum += sum + (Distance - 7) * 8500;
+                        sum += 8500;
                     }
                 }
                 return sum;
             }
             else
             {
-                if (Distance == 1)
-                {
-                    return 7500;
-                }
+               
                 for (int i = 0; i < Distance; i++)
                 {
                     if (i < 2)
                     {
-                        sum += 17000;
+                        sum += 8500;
                     }
                     else if (i < 7)
                     {
-                        sum += 15000;
+                        sum += 3000;
                     }
                     else
                     {
-                        sum += sum + (Distance - 7) * 10500;
+                        sum += 10500;
                     }
                 }
                 return sum;
             }
+
         }
         public override long payBackCompy()
         {
-            return getCost() * 10 / 100;
+            return getCost() * 90 / 100;
         }
         public long bonus()
         {
-            long salary = getCost();
+            long salary = payBackCompy();
             if (salary > 2000000)
             {
                 return salary + 200000;
             }
             return salary;
+        }
+        public override void getInfor()
+        {
+            base.getInfor();
+            Console.WriteLine("Space:{0}\tCost:{1}", Space, bonus());
         }
     }
 

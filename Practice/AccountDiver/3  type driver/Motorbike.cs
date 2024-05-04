@@ -8,26 +8,40 @@ namespace Practice.AccountDiver
 {
     internal class Motorbike : Driver
     {
-        public Motorbike(string username, string password, string status, string phone, string typeCustomer, string id, string name, string typeDiver, string start, string finish, int distance, int time) : base(username, password, status, phone, typeCustomer, id, name, typeDiver, start, finish, distance, time) { }
+        public Motorbike(string username, string status, string phone, string typeCustomer, int distance, string id, string name, string typeDiver) : base(username, status, phone, typeCustomer, id, name, typeDiver, distance) { }
         public long surchange()
         {
-            if (Time > 22 && Time < 24 || Time > 0 && Time < 5)
+            if (Time.Hour > 22 && Time.Hour < 24 && Time.Hour > 0 && Time.Hour < 5)
             {
-                return getCost() * 3000;
+                return getCost() + Distance * 3000;
             }
             return getCost();
         }
         public override long getCost()
         {
-            if (Distance == 1)
+            int sum = 0;
+
+            for (int i = 0; i < Distance; i++)
             {
-                return 4000;
+                if (i < 2)
+                {
+                    sum += 4000;
+                }
+                else
+                {
+                    sum += 5000;
+                }
             }
-            return 2 * 8000 + (Distance - 2) * 5000;
+            return sum;
         }
         public override long payBackCompy()
         {
-            return getCost() * 5 / 100;
+            return surchange() * 95 / 100;
+        }
+        public override void getInfor()
+        {
+            base.getInfor();
+            Console.WriteLine("Cost:{0}", surchange());
         }
 
     }

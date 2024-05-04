@@ -1,5 +1,6 @@
 ﻿using Practice.ABC;
 using Practice.AccountDiver;
+using Practice.AccountDiver._3__type_driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,8 +48,15 @@ namespace Practice
         }
         static void mainAccount(string[] args)
         {
-            Customer Manh = new Customer("Cong Manh", "123456", "0987276613", "Offline", "Normal");
+            Customer Manh = new Customer("Cong Manh", "Offline", "0987276613", "Normal");
             Manh.getInfor();
+            Motorbike Son = new Motorbike("Nora", "Offline", "12300456123", Manh.TypeCustomer,Manh.getLocation(), "13DHMT", "Minh Son", Manh.TypeVehicle);
+            Son.getInfor();
+            Car Tan = new Car("Steve", "Offline", "564123132", Manh.TypeCustomer,Manh.getLocation(), "13DHC", "Hoang Tan", Manh.TypeVehicle, 4);
+            Tan.getInfor();
+            Truck Quy = new Truck("Edward", "Offline", "7814233123", Manh.TypeCustomer,Manh.getLocation(), "13DHT", "Tan Quy", Manh.TypeVehicle, 4);
+            Quy.getInfor();
+
             Console.ReadKey();
         }
     }

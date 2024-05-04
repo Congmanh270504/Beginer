@@ -9,19 +9,19 @@ namespace Practice.AccountDiver
     class Account
     {
         string username, password, phone, status;
-        public Account(string username, string password, string status, string phone)
+        public Account(string username, string status, string phone)
         {
             this.username = username;
-            this.password = password;
-            this.phone = phone;
             this.status = status;
+            this.phone = phone;
+            password = "12345";
         }
         public Account()
         {
             username = "";
             password = "";
-            phone = "";
             status = "";
+            phone = "";
         }
 
         public string Username { get => username; set => username = value; }
@@ -52,8 +52,8 @@ namespace Practice.AccountDiver
         public int setLocation()
         {
             Random a = new Random();
-            return a.Next(999);
+            return a.Next(50);
         }
     }
-   
+
 }
