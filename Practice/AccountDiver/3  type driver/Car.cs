@@ -9,7 +9,7 @@ namespace Practice.AccountDiver
     class Car : Driver, IBonus
     {
         int space;
-        public Car(string username, string status, string phone, string typeCustomer,int distance, string id, string name, string typeDiver, int space) : base(username, status, phone, typeCustomer, id, name, typeDiver,distance)
+        public Car(string username, string phone, string typeCustomer, int distance, string id, string name, string typeDiver, int space) : base(username, phone, typeCustomer, id, name, typeDiver, distance)
         {
             this.space = space;
         }

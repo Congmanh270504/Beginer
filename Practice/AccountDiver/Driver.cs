@@ -12,7 +12,7 @@ namespace Practice.AccountDiver
         int distance;
         DateTime time = DateTime.Now;
 
-        public Driver(string username, string status, string phone, string typeCustomer, string id, string name, string typeDiver, int distance) : base(username, status, phone, typeCustomer)
+        public Driver(string username, string phone, string typeCustomer, string id, string name, string typeDiver, int distance) : base(username, phone, typeCustomer)
         {
             this.typeDiver = typeDiver;
             this.id = id;
@@ -56,7 +56,7 @@ namespace Practice.AccountDiver
         }
         public new virtual void getInfor()
         {
-
+            signIn();
             Console.WriteLine("Your driver: ");
             Console.WriteLine("ID:{0}\tDriver name:{1}\tUsername:{2}\tPhone:{3}\tType driver:{4}\tStatus:{5}\tDistance:{6}", Id, Name, Username, Phone, TypeDiver, Status, Distance);
         }

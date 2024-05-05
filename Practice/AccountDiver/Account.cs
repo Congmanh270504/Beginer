@@ -9,11 +9,11 @@ namespace Practice.AccountDiver
     class Account
     {
         string username, password, phone, status;
-        public Account(string username, string status, string phone)
+        public Account(string username, string phone)
         {
             this.username = username;
-            this.status = status;
             this.phone = phone;
+            status = "Offline";
             password = "12345";
         }
         public Account()

@@ -8,7 +8,7 @@ namespace Practice.AccountDiver
 {
     internal class Motorbike : Driver
     {
-        public Motorbike(string username, string status, string phone, string typeCustomer, int distance, string id, string name, string typeDiver) : base(username, status, phone, typeCustomer, id, name, typeDiver, distance) { }
+        public Motorbike(string username, string phone, string typeCustomer, int distance, string id, string name, string typeDiver) : base(username, phone, typeCustomer, id, name, typeDiver, distance) { }
         public long surchange()
         {
             if (Time.Hour > 22 && Time.Hour < 24 && Time.Hour > 0 && Time.Hour < 5)

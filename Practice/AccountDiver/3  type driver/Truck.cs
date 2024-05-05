@@ -9,7 +9,7 @@ namespace Practice.AccountDiver._3__type_driver
     internal class Truck : Driver, IBonus
     {
         double weight;
-        public Truck(string username, string status, string phone, string typeCustomer, int distance, string id, string name, string typeDiver, double weight) : base(username, status, phone, typeCustomer, id, name, typeDiver, distance)
+        public Truck(string username, string phone, string typeCustomer, int distance, string id, string name, string typeDiver, double weight) : base(username, phone, typeCustomer, id, name, typeDiver, distance)
         {
             this.weight = weight;
         }
