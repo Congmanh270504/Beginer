@@ -9,12 +9,21 @@ namespace Practice.AccountDiver
     class Customer : Account
     {
         string typeCustomer, typeVehicle;
-        int location, destination;
+        int location, destination, distance;
+        public Customer()
+        {
+            typeCustomer = "Normal";
+            typeVehicle = "Unset";
+            location = destination = distance = 0;
+        }
         public Customer(string username, string phone, string typeCustomer) : base(username, phone)
         {
             this.typeCustomer = typeCustomer;
             location = setLocation();
-            destination = toLocation();
+            Destination = toLocation();
+            this.typeCustomer = "Normal";
+            typeVehicle = "Unset";
+            location = destination = distance = 0;
         }
         public string TypeCustomer
         {
@@ -30,8 +39,10 @@ namespace Practice.AccountDiver
         }
 
         public int Location { get => location; set => location = value; }
-        public int Finish { get => destination; set => destination = value; }
+        public int Finish { get => Destination; set => Destination = value; }
         public string TypeVehicle { get => typeVehicle; set => typeVehicle = value; }
+        public int Distance { get => distance; set => distance = value; }
+        public int Destination { get => destination; set => destination = value; }
 
         public void menu()
         {
@@ -45,11 +56,11 @@ namespace Practice.AccountDiver
         }
         public int checkDestination()
         {
-            while (destination <= location)
+            while (Destination <= location)
             {
-                destination = toLocation();
+                Destination = toLocation();
             }
-            return destination;
+            return Destination;
         }
         public int getLocation()
         {
@@ -87,19 +98,42 @@ namespace Practice.AccountDiver
         }
         public void getInfor()
         {
-            Console.WriteLine("Username:{0} Phone:{1} Status:{2} Type customer:{3} Type vehicle:{4} Your location:{5} Destination:{6} Distance:{7}", Username, Phone, Status, TypeCustomer, TypeVehicle, location, checkDestination(), getLocation());
+            Console.WriteLine("Username:{0} Phone:{1} Status:{2} Type customer:{3} Type vehicle:{4} Your location:{5} Destination:{6} Distance:{7}", Username, Phone, Status, TypeCustomer, TypeVehicle, location, Destination, Distance);
         }
 
     }
-    class CustomerBLL
+    class ListCustomer
     {
+        List<Customer> motobikes = new List<Customer>();
+
         XmlDocument read = new XmlDocument();
         XmlElement root;// lay phan tu dau tien cua cai list customer
-        string fileXML = "E:\\byMyOwn\\Hoc C#\\Beginer\\Practice\\AccountDiver\\XML\\Customer.xml";
-        public CustomerBLL()
+        public ListCustomer()
         {
-            read.Load(fileXML);// load file
-            root = read.DocumentElement;// phan tu dau tien cua list
+        }
+
+        internal List<Customer> Motobike { get => motobikes; set => motobikes = value; }
+        public void Input(string file)
+        {
+            XmlNodeList node = read.SelectNodes("/Accounts/Customer");
+            read.Load(file);// load file
+            foreach (XmlNode i in node)
+            {
+
+                Customer cus = new Customer();
+                cus.Username = i["username"].InnerText;
+                cus.Phone = i["phone"].InnerText;
+                cus.TypeCustomer = i["typeCustomer"].InnerText;
+                motobikes.Add(cus); ;
+            }
+        }
+        public void Output()
+        {
+            Console.WriteLine("List customer: ");
+            foreach (var item in motobikes)
+            {
+                item.getInfor();
+            }
         }
         public void add(Customer customer)
         {
@@ -118,12 +152,11 @@ namespace Practice.AccountDiver
             Customer.AppendChild(typeCustomertomer);
 
             root.AppendChild(Customer);//  dua vao cai list
-            read.Save(fileXML); // nho luu lai file
         }
-        public void changeInfor(Customer customer)
+        public void changeNode(Customer customer)
         {
-            XmlNode nameCustomer = root.SelectSingleNode("Customer[username ='" + customer.Username + "']"); // <=> /Customers/Customer[username='Username']
-            if (nameCustomer == null)
+            XmlNode node = root.SelectSingleNode("Customer[username ='" + customer.Username + "']"); // <=> /Customers/Customer[username='Username']
+            if (node == null)
             {
                 Console.WriteLine("Not found");
                 return;
@@ -142,7 +175,17 @@ namespace Practice.AccountDiver
             typeCustomertomer.InnerText = customer.TypeCustomer;
             Customer.AppendChild(typeCustomertomer);
             //thay the node con cu = con moi 
-            root.ReplaceChild(Customer, nameCustomer); read.Save(fileXML);
+            root.ReplaceChild(Customer, node);
+        }
+        public void deleteNode(Customer customer)
+        {
+            XmlNode node = root.SelectSingleNode("Customer[username ='" + customer.Username + "']"); // <=> /Customers/Customer[username='Username']
+            if (node == null)
+            {
+                Console.WriteLine("Not found");
+                return;
+            }
+            root.RemoveChild(node);
         }
     }
 }

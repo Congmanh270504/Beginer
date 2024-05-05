@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Accounts>
+	<Customer>
+		<username>Cong Manh</username>
+		<phone>09883086491</phone>
+		<typeCustomer>Normal</typeCustomer>
+	</Customer>
+	<Customer>
+		<username>Pham Quyen</username>
+		<phone>09883050283</phone>
+		<typeCustomer>VIP</typeCustomer>
+	</Customer>
+	<Customer>
+		<username>Hung Dung</username>
+		<phone>09883086491</phone>
+		<typeCustomer>Normal</typeCustomer>
+	</Customer>
+	
+	
+	<Motobike>
+		<username>Nora</username>
+		<phone>09883679431</phone>
+		<id>13DHMT1</id>
+		<name>Minh Son</name>
+		<typeDiver>Moto bike</typeDiver>
+	</Motobike>
+	<Motobike>
+		<username>Bo tuoi</username>
+		<phone>09884759431</phone>
+		<id>13DHMT2</id>
+		<name>Nguyen Van A</name>
+		<typeDiver>Moto bike</typeDiver>
+	</Motobike>
+	<Motobike>
+		<username>Tom day minh</username>
+		<phone>09773679431</phone>
+		<id>13DHMT3</id>
+		<name>Nguyen Van B</name>
+		<typeDiver>Moto bike</typeDiver>
+	</Motobike>
+</Accounts>

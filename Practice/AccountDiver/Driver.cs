@@ -11,7 +11,13 @@ namespace Practice.AccountDiver
         string id, name, typeDiver;
         int distance;
         DateTime time = DateTime.Now;
-
+        protected Driver()
+        {
+            id = "Unset";
+            name = "Unset";
+            typeDiver = "Unset";
+            distance = 0;
+        }
         public Driver(string username, string phone, string typeCustomer, string id, string name, string typeDiver, int distance) : base(username, phone, typeCustomer)
         {
             this.typeDiver = typeDiver;
@@ -27,15 +33,7 @@ namespace Practice.AccountDiver
 
         public string TypeDiver
         {
-            get
-            {
-                if (!typeDiver.Equals("Moto bike") && !typeDiver.Equals("Car") && !typeDiver.Equals("Truck"))
-                {
-                    throw new Exception("Wrong Diver type !");
-                }
-                return typeDiver;
-            }
-            set { typeDiver = value; }
+            get => typeDiver; set => typeDiver = value;
         }
 
         public string Name { get => name; set => name = value; }

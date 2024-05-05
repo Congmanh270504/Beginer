@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Practice.AccountDiver
 {
     internal class Motorbike : Driver
     {
+        public Motorbike()
+        {
+            //Username = "Unset";
+            //Phone = "Unset";
+        }
         public Motorbike(string username, string phone, string typeCustomer, int distance, string id, string name, string typeDiver) : base(username, phone, typeCustomer, id, name, typeDiver, distance) { }
         public long surchange()
         {
@@ -44,5 +50,40 @@ namespace Practice.AccountDiver
             Console.WriteLine("Cost:{0}", surchange());
         }
 
+    }
+    class ListMotobike
+    {
+        List<Motorbike> motobikes = new List<Motorbike>();
+
+        XmlDocument read = new XmlDocument();
+        XmlElement root;// lay phan tu dau tien cua cai list customer
+        public ListMotobike()
+        {
+        }
+
+        public void Input(string file)
+        {
+            XmlNodeList node = read.SelectNodes("/Accounts/Motobike");
+            read.Load(file);// load file
+            foreach (XmlNode i in node)
+            {
+
+                Motorbike moto = new Motorbike();
+                moto.Username = i["username"].InnerText;
+                moto.Phone = i["phone"].InnerText;
+                moto.Id = i["id"].InnerText;
+                moto.Name = i["name"].InnerText;
+                moto.TypeDiver = i["typeDiver"].InnerText;
+                motobikes.Add(moto);
+            }
+        }
+        public void Output()
+        {
+            Console.WriteLine("List customer: ");
+            foreach (var item in motobikes)
+            {
+                item.getInfor();
+            }
+        }
     }
 }

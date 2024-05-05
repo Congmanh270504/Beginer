@@ -48,17 +48,23 @@ namespace Practice
         }
         static void mainAccount(string[] args)
         {
-            Customer Manh = new Customer("Cong Manh", "0987276613", "Normal");
-           
-            Manh.callVehicle();
-            Manh.getInfor();
-            Motorbike Son = new Motorbike("Nora", "12300456123", Manh.TypeCustomer, Manh.getLocation(), "13DHMT", "Minh Son", Manh.TypeVehicle);
-            Son.getInfor();
-            Car Tan = new Car("Steve", "564123132", Manh.TypeCustomer, Manh.getLocation(), "13DHC", "Hoang Tan", Manh.TypeVehicle, 4);
-            Tan.getInfor();
-            Truck Quy = new Truck("Edward", "7814233123", Manh.TypeCustomer, Manh.getLocation(), "13DHT", "Tan Quy", Manh.TypeVehicle, 4);
-            Quy.getInfor();
+            string fileCustomer = "../../../AccountDiver/XML/Accounts.xml";
 
+            //Customer Manh = new Customer("Cong Manh", "0987276613", "Normal");
+            //Manh.callVehicle();
+            //Manh.getInfor();
+            //Motorbike Son = new Motorbike("Nora", "12300456123", Manh.TypeCustomer, Manh.getLocation(), "13DHMT", "Minh Son", Manh.TypeVehicle);
+            //Son.getInfor();
+            //Car Tan = new Car("Steve", "564123132", Manh.TypeCustomer, Manh.getLocation(), "13DHC", "Hoang Tan", Manh.TypeVehicle, 4);
+            //Tan.getInfor();
+            //Truck Quy = new Truck("Edward", "7814233123", Manh.TypeCustomer, Manh.getLocation(), "13DHT", "Tan Quy", Manh.TypeVehicle, 4);
+            //Quy.getInfor();
+            ListCustomer listCustomer = new ListCustomer();
+            listCustomer.Input(fileCustomer);
+            listCustomer.Output();
+            ListMotobike listMotobike = new ListMotobike();
+            listMotobike.Input(fileCustomer);
+            listMotobike.Output();
             Console.ReadKey();
         }
     }

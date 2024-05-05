@@ -20,7 +20,7 @@ namespace Practice.AccountDiver
         {
             username = "";
             password = "";
-            status = "";
+            status = "Offline";
             phone = "";
         }
 
