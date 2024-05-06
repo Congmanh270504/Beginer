@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Practice.AccountDiver._3__type_driver
 {
@@ -13,7 +14,10 @@ namespace Practice.AccountDiver._3__type_driver
         {
             this.weight = weight;
         }
-
+        public Truck()
+        {
+            
+        }
         public double Weight { get => weight; set => weight = value; }
 
         public override long getCost()
@@ -76,6 +80,42 @@ namespace Practice.AccountDiver._3__type_driver
         {
             base.getInfor();
             Console.WriteLine("Weight:{0}\tCost:{1}", Weight, bonus());
+        }
+    }
+    class ListTrucks
+    {
+        List<Truck> trucks = new List<Truck>();
+
+        XmlDocument read = new XmlDocument();
+        XmlElement root;// lay phan tu dau tien cua cai list customer
+        public ListTrucks()
+        {
+        }
+
+        public void Input(string file)
+        {
+            XmlNodeList node = read.SelectNodes("/Accounts/Truck");
+            read.Load(file);// load file
+            foreach (XmlNode i in node)
+            {
+
+                Truck truck = new Truck();
+                truck.Username = i["username"].InnerText;
+                truck.Phone = i["phone"].InnerText;
+                truck.Id = i["id"].InnerText;
+                truck.Name = i["name"].InnerText;
+                truck.TypeDiver = i["typeDiver"].InnerText;
+                truck.Weight = int.Parse(i["weight"].InnerText);
+                trucks.Add(truck);
+            }
+        }
+        public void Output()
+        {
+            Console.WriteLine("List customer: ");
+            foreach (var item in trucks)
+            {
+                item.getInfor();
+            }
         }
     }
 }

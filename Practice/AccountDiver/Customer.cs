@@ -9,12 +9,13 @@ namespace Practice.AccountDiver
     class Customer : Account
     {
         string typeCustomer, typeVehicle;
-        int location, destination, distance;
+        int location, destination, distance, timeCall;
         public Customer()
         {
             typeCustomer = "Normal";
             typeVehicle = "Unset";
             location = destination = distance = 0;
+            TimeCall = 0;
         }
         public Customer(string username, string phone, string typeCustomer) : base(username, phone)
         {
@@ -24,6 +25,7 @@ namespace Practice.AccountDiver
             this.typeCustomer = "Normal";
             typeVehicle = "Unset";
             location = destination = distance = 0;
+            TimeCall = getTimeCall();
         }
         public string TypeCustomer
         {
@@ -43,11 +45,12 @@ namespace Practice.AccountDiver
         public string TypeVehicle { get => typeVehicle; set => typeVehicle = value; }
         public int Distance { get => distance; set => distance = value; }
         public int Destination { get => destination; set => destination = value; }
+        public int TimeCall { get => timeCall; set => timeCall = value; }
 
-        public void menu()
+        public static void menu()
         {
             Console.Write("Choose your vehicle u want: ");
-            Console.WriteLine("1.Moto bike\t2.Car\t3.Truck\t0.Exit");
+            Console.WriteLine("1.Motobike\t2.Car\t3.Truck\t0.Exit");
         }
         public int toLocation()
         {
@@ -66,6 +69,11 @@ namespace Practice.AccountDiver
         {
             int des = checkDestination();
             return des - location;
+        }
+        public int getTimeCall()
+        {
+            Random random = new Random();
+            return random.Next(50);
         }
         public void callVehicle()
         {
@@ -98,7 +106,11 @@ namespace Practice.AccountDiver
         }
         public void getInfor()
         {
-            Console.WriteLine("Username:{0} Phone:{1} Status:{2} Type customer:{3} Type vehicle:{4} Your location:{5} Destination:{6} Distance:{7}", Username, Phone, Status, TypeCustomer, TypeVehicle, location, Destination, Distance);
+            if (TimeCall >= 10)
+            {
+                typeCustomer = "VIP";
+            }
+            Console.WriteLine("\tUsername:{0}\tPhone:{1}\tStatus:{2}\tType customer:{3}\tType vehicle:{4}\tYour location:{5}\tDestination:{6}\tDistance:{7}\n\tTime call driver:{8}", Username, Phone, Status, TypeCustomer, TypeVehicle, location, Destination, Distance, TimeCall);
         }
 
     }
@@ -124,6 +136,7 @@ namespace Practice.AccountDiver
                 cus.Username = i["username"].InnerText;
                 cus.Phone = i["phone"].InnerText;
                 cus.TypeCustomer = i["typeCustomer"].InnerText;
+                cus.TimeCall = int.Parse(i["timeCall"].InnerText);
                 motobikes.Add(cus); ;
             }
         }

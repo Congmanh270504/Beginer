@@ -11,8 +11,7 @@ namespace Practice.AccountDiver
     {
         public Motorbike()
         {
-            //Username = "Unset";
-            //Phone = "Unset";
+          
         }
         public Motorbike(string username, string phone, string typeCustomer, int distance, string id, string name, string typeDiver) : base(username, phone, typeCustomer, id, name, typeDiver, distance) { }
         public long surchange()

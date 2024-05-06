@@ -48,23 +48,75 @@ namespace Practice
         }
         static void mainAccount(string[] args)
         {
+            Console.InputEncoding = Encoding.UTF8;
             string fileCustomer = "../../../AccountDiver/XML/Accounts.xml";
-
-            //Customer Manh = new Customer("Cong Manh", "0987276613", "Normal");
-            //Manh.callVehicle();
-            //Manh.getInfor();
-            //Motorbike Son = new Motorbike("Nora", "12300456123", Manh.TypeCustomer, Manh.getLocation(), "13DHMT", "Minh Son", Manh.TypeVehicle);
-            //Son.getInfor();
-            //Car Tan = new Car("Steve", "564123132", Manh.TypeCustomer, Manh.getLocation(), "13DHC", "Hoang Tan", Manh.TypeVehicle, 4);
-            //Tan.getInfor();
-            //Truck Quy = new Truck("Edward", "7814233123", Manh.TypeCustomer, Manh.getLocation(), "13DHT", "Tan Quy", Manh.TypeVehicle, 4);
-            //Quy.getInfor();
             ListCustomer listCustomer = new ListCustomer();
-            listCustomer.Input(fileCustomer);
-            listCustomer.Output();
             ListMotobike listMotobike = new ListMotobike();
-            listMotobike.Input(fileCustomer);
-            listMotobike.Output();
+            ListTrucks listTrucks = new ListTrucks();
+            int choose = 0, show = 0;
+            Driver driver = null;
+            Account.menu();
+            do
+            {
+                Console.Write("Choose option: ");
+                choose = Convert.ToInt32(Console.ReadLine());
+                switch (choose)
+                {
+                    case 1:
+                        listCustomer.Input(fileCustomer);
+                        listCustomer.Output();
+                        break;
+                    case 2:
+                        Customer.menu();
+                        do
+                        {
+                            Console.Write("Choose option: ");
+                            show = Convert.ToInt32(Console.ReadLine());
+
+                            switch (show)
+                            {
+                                case 1:
+                                    listMotobike.Input(fileCustomer);
+                                    listMotobike.Output();
+                                    break;
+                                case 2:
+                                    ListCar listCar = new ListCar();
+                                    listCar.Input(fileCustomer);
+                                    listCar.Output();
+                                    break;
+                                case 3:
+                                    listTrucks.Input(fileCustomer);
+                                    listTrucks.Output();
+                                    break;
+                                case 0:
+                                    Console.WriteLine("\tHave a nice day sir!!\n");
+                                    break;
+                                default:
+                                    Console.WriteLine("Don't have that choose!!\n");
+                                    break;
+                            }
+                        } while (show != 0); ;
+                        break;
+
+                    case 0:
+                        Console.WriteLine("\tHave a nice day sir!!\n");
+                        break;
+                    default:
+                        Console.WriteLine("Don't have that choose!!\n");
+                        break;
+                }
+            } while (choose != 0);
+
+
+
+
+
+
+
+
+
+
+
             Console.ReadKey();
         }
     }

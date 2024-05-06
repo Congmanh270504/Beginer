@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Practice.AccountDiver
 {
@@ -13,7 +14,10 @@ namespace Practice.AccountDiver
         {
             this.space = space;
         }
+        public Car()
+        {
 
+        }
         public int Space
         {
             get
@@ -54,7 +58,7 @@ namespace Practice.AccountDiver
             }
             else
             {
-               
+
                 for (int i = 0; i < Distance; i++)
                 {
                     if (i < 2)
@@ -91,6 +95,42 @@ namespace Practice.AccountDiver
         {
             base.getInfor();
             Console.WriteLine("Space:{0}\tCost:{1}", Space, bonus());
+        }
+    }
+    class ListCar
+    {
+        List<Car> cars = new List<Car>();
+
+        XmlDocument read = new XmlDocument();
+        XmlElement root;// lay phan tu dau tien cua cai list customer
+        public ListCar()
+        {
+        }
+
+        public void Input(string file)
+        {
+            XmlNodeList node = read.SelectNodes("/Accounts/Car");
+            read.Load(file);// load file
+            foreach (XmlNode i in node)
+            {
+
+                Car car = new Car();
+                car.Username = i["username"].InnerText;
+                car.Phone = i["phone"].InnerText;
+                car.Id = i["id"].InnerText;
+                car.Name = i["name"].InnerText;
+                car.TypeDiver = i["typeDiver"].InnerText;
+                car.Space = int.Parse(i["space"].InnerText);
+                cars.Add(car);
+            }
+        }
+        public void Output()
+        {
+            Console.WriteLine("List customer: ");
+            foreach (var item in cars)
+            {
+                item.getInfor();
+            }
         }
     }
 

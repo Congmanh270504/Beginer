@@ -4,19 +4,24 @@
 		<username>Cong Manh</username>
 		<phone>09883086491</phone>
 		<typeCustomer>Normal</typeCustomer>
+		<timeCall>5</timeCall>
 	</Customer>
 	<Customer>
 		<username>Pham Quyen</username>
 		<phone>09883050283</phone>
 		<typeCustomer>VIP</typeCustomer>
+		<timeCall>15</timeCall>
+
 	</Customer>
 	<Customer>
 		<username>Hung Dung</username>
 		<phone>09883086491</phone>
 		<typeCustomer>Normal</typeCustomer>
+		<timeCall>10</timeCall>
+
 	</Customer>
-	
-	
+
+
 	<Motobike>
 		<username>Nora</username>
 		<phone>09883679431</phone>
@@ -38,4 +43,52 @@
 		<name>Nguyen Van B</name>
 		<typeDiver>Moto bike</typeDiver>
 	</Motobike>
+	<Car>
+		<username>Steve</username>
+		<phone>09773677831</phone>
+		<id>13DHC1</id>
+		<name>Hoang Tan</name>
+		<typeDiver>Car</typeDiver>
+		<space>4</space>
+	</Car>
+	<Car>
+		<username>Mi hai tom</username>
+		<phone>09773677831</phone>
+		<id>13DHC2</id>
+		<name>Nguyen Van C</name>
+		<typeDiver>Car</typeDiver>
+		<space>4</space>
+	</Car>
+	<Car>
+		<username>Dat 1 phit</username>
+		<phone>09773677831</phone>
+		<id>13DHC3</id>
+		<name>Nguyen Van D</name>
+		<typeDiver>Car</typeDiver>
+		<space>7</space>
+	</Car>
+	<Truck>
+		<username>Edward</username>
+		<phone>09773677831</phone>
+		<id>13DHT1</id>
+		<name>Tan Quy</name>
+		<typeDiver>Car</typeDiver>
+		<weight>7</weight>
+	</Truck>
+	<Truck>
+		<username>Sac 1 luc</username>
+		<phone>09773677831</phone>
+		<id>13DHC1</id>
+		<name>Nguyen Van E</name>
+		<typeDiver>Car</typeDiver>
+		<weight>7</weight>
+	</Truck>
+	<Truck>
+		<username>Lam thon</username>
+		<phone>09773677831</phone>
+		<id>13DHC1</id>
+		<name>Nguyen Van F</name>
+		<typeDiver>Car</typeDiver>
+		<weight>7</weight>
+	</Truck>
 </Accounts>
