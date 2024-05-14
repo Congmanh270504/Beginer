@@ -52,9 +52,15 @@ namespace Practice
             string fileCustomer = "../../../AccountDiver/XML/Accounts.xml";
             ListCustomer listCustomer = new ListCustomer();
             ListMotobike listMotobike = new ListMotobike();
+            ListCar listCar = new ListCar();
             ListTrucks listTrucks = new ListTrucks();
-            int choose = 0, show = 0;
-            Driver driver = null;
+            int choose = 0, show = 0, result, check = 0;
+
+            listCustomer.Input(fileCustomer);
+            listMotobike.Input(fileCustomer);
+            listCar.Input(fileCustomer);
+            listTrucks.Input(fileCustomer);
+
             Account.menu();
             do
             {
@@ -63,7 +69,6 @@ namespace Practice
                 switch (choose)
                 {
                     case 1:
-                        listCustomer.Input(fileCustomer);
                         listCustomer.Output();
                         break;
                     case 2:
@@ -72,24 +77,22 @@ namespace Practice
                         {
                             Console.Write("Choose option: ");
                             show = Convert.ToInt32(Console.ReadLine());
-
                             switch (show)
                             {
                                 case 1:
-                                    listMotobike.Input(fileCustomer);
+                                    Console.WriteLine("Your driver: ");
                                     listMotobike.Output();
                                     break;
                                 case 2:
-                                    ListCar listCar = new ListCar();
-                                    listCar.Input(fileCustomer);
+                                    Console.WriteLine("Your driver: ");
                                     listCar.Output();
                                     break;
                                 case 3:
-                                    listTrucks.Input(fileCustomer);
+                                    Console.WriteLine("Your driver: ");
                                     listTrucks.Output();
                                     break;
                                 case 0:
-                                    Console.WriteLine("\tHave a nice day sir!!\n");
+                                    Console.WriteLine("\tBack to menu 1!!\n");
                                     break;
                                 default:
                                     Console.WriteLine("Don't have that choose!!\n");
@@ -97,7 +100,34 @@ namespace Practice
                             }
                         } while (show != 0); ;
                         break;
-
+                    case 3:
+                        result = listCar.Count() + listMotobike.Count() + listTrucks.Count();
+                        Console.WriteLine("Total vehicle type:{0} ", result);
+                        break;
+                    case 4:
+                        result = listCustomer.Count();
+                        Console.WriteLine("Total customers:{0} ", result);
+                        break;
+                    case 5:
+                        result = Convert.ToInt32(listMotobike.getRevenue());
+                        Console.WriteLine("Revenue motobikes:{0} ", result);
+                        result = Convert.ToInt32(listCar.getRevenue());
+                        Console.WriteLine("Revenue cars:{0} ", result);
+                        result = Convert.ToInt32(listTrucks.getRevenue());
+                        Console.WriteLine("Revenue trucks:{0} ", result);
+                        break;
+                    case 6:
+                        Console.WriteLine("Highest motobike cost is:");
+                        listMotobike.getHighestCost();
+                        break;
+                    case 7:
+                        Console.WriteLine("Highest car cost is:");
+                        listCar.getHighestCost();
+                        break;
+                    case 8:
+                        Console.WriteLine("Highest truck cost is:");
+                        listTrucks.getHighestCost();
+                        break;
                     case 0:
                         Console.WriteLine("\tHave a nice day sir!!\n");
                         break;

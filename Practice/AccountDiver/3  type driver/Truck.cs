@@ -16,7 +16,7 @@ namespace Practice.AccountDiver._3__type_driver
         }
         public Truck()
         {
-            
+            weight = 0;
         }
         public double Weight { get => weight; set => weight = value; }
 
@@ -111,11 +111,37 @@ namespace Practice.AccountDiver._3__type_driver
         }
         public void Output()
         {
-            Console.WriteLine("List customer: ");
             foreach (var item in trucks)
             {
                 item.getInfor();
             }
+        }
+        public int Count()
+        {
+            return trucks.Count;
+        }
+        public long getRevenue()
+        {
+            long sum = 0;
+            foreach (var item in trucks)
+            {
+                sum += item.payBackCompy();
+            }
+            return sum;
+        }
+        public void getHighestCost()
+        {
+            long max = trucks[0].payBackCompy();
+            int index = 0;
+            for (int i = 0; i < trucks.Count; i++)
+            {
+                if (max < trucks[i].payBackCompy())
+                {
+                    max = trucks[i].payBackCompy();
+                    index = i;
+                }
+            }
+            trucks[index].getInfor();
         }
     }
 }

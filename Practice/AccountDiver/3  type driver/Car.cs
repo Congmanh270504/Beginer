@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Formats.Asn1;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,11 +127,37 @@ namespace Practice.AccountDiver
         }
         public void Output()
         {
-            Console.WriteLine("List customer: ");
             foreach (var item in cars)
             {
                 item.getInfor();
             }
+        }
+        public int Count()
+        {
+            return cars.Count;
+        }
+        public long getRevenue()
+        {
+            long sum = 0;
+            foreach (var item in cars)
+            {
+                sum += item.payBackCompy();
+            }
+            return sum;
+        }
+        public void getHighestCost()
+        {
+            long max = cars[0].payBackCompy();
+            int index = 0;
+            for (int i = 0; i < cars.Count; i++)
+            {
+                if (max < cars[i].payBackCompy())
+                {
+                    max = cars[i].payBackCompy();
+                    index = i;
+                }
+            }
+            cars[index].getInfor();
         }
     }
 

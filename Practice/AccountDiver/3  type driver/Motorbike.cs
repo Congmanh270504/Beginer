@@ -11,7 +11,6 @@ namespace Practice.AccountDiver
     {
         public Motorbike()
         {
-          
         }
         public Motorbike(string username, string phone, string typeCustomer, int distance, string id, string name, string typeDiver) : base(username, phone, typeCustomer, id, name, typeDiver, distance) { }
         public long surchange()
@@ -66,7 +65,6 @@ namespace Practice.AccountDiver
             read.Load(file);// load file
             foreach (XmlNode i in node)
             {
-
                 Motorbike moto = new Motorbike();
                 moto.Username = i["username"].InnerText;
                 moto.Phone = i["phone"].InnerText;
@@ -78,11 +76,37 @@ namespace Practice.AccountDiver
         }
         public void Output()
         {
-            Console.WriteLine("List customer: ");
             foreach (var item in motobikes)
             {
                 item.getInfor();
             }
+        }
+        public int Count()
+        {
+            return motobikes.Count;
+        }
+        public long getRevenue()
+        {
+            long sum = 0;
+            foreach (var item in motobikes)
+            {
+                sum += item.payBackCompy();
+            }
+            return sum;
+        }
+        public void getHighestCost()
+        {
+            long max = motobikes[0].payBackCompy();
+            int index = 0;
+            for (int i = 0; i < motobikes.Count; i++)
+            {
+                if (max < motobikes[i].payBackCompy())
+                {
+                    max = motobikes[i].payBackCompy();
+                    index = i;
+                }
+            }
+            motobikes[index].getInfor();
         }
     }
 }

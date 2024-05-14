@@ -9,24 +9,21 @@ namespace Practice.AccountDiver
     abstract class Driver : Customer
     {
         string id, name, typeDiver;
-        int distance;
         DateTime time = DateTime.Now;
         protected Driver()
         {
             id = "Unset";
             name = "Unset";
             typeDiver = "Unset";
-            distance = 0;
+            Distance = getLocation();
         }
         public Driver(string username, string phone, string typeCustomer, string id, string name, string typeDiver, int distance) : base(username, phone, typeCustomer)
         {
             this.typeDiver = typeDiver;
             this.id = id;
             this.name = name;
-            this.distance = distance;
         }
 
-        public int Distance { get => distance; set => distance = value; }
         public DateTime Time { get => time; set => time = value; }
         public string Id { get => id; set => id = value; }
 
@@ -54,7 +51,6 @@ namespace Practice.AccountDiver
         }
         public new virtual void getInfor()
         {
-            Console.WriteLine("Your driver: ");
             Console.WriteLine("ID:{0}\tDriver name:{1}\tUsername:{2}\tPhone:{3}\tType driver:{4}\tStatus:{5}\tDistance:{6}", Id, Name, Username, Phone, TypeDiver, Status, Distance);
         }
 

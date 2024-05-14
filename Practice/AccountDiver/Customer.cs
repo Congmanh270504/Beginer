@@ -116,7 +116,7 @@ namespace Practice.AccountDiver
     }
     class ListCustomer
     {
-        List<Customer> motobikes = new List<Customer>();
+        List<Customer> customers = new List<Customer>();
 
         XmlDocument read = new XmlDocument();
         XmlElement root;// lay phan tu dau tien cua cai list customer
@@ -124,7 +124,7 @@ namespace Practice.AccountDiver
         {
         }
 
-        internal List<Customer> Motobike { get => motobikes; set => motobikes = value; }
+        internal List<Customer> Motobike { get => customers; set => customers = value; }
         public void Input(string file)
         {
             XmlNodeList node = read.SelectNodes("/Accounts/Customer");
@@ -137,16 +137,20 @@ namespace Practice.AccountDiver
                 cus.Phone = i["phone"].InnerText;
                 cus.TypeCustomer = i["typeCustomer"].InnerText;
                 cus.TimeCall = int.Parse(i["timeCall"].InnerText);
-                motobikes.Add(cus); ;
+                customers.Add(cus); ;
             }
         }
         public void Output()
         {
             Console.WriteLine("List customer: ");
-            foreach (var item in motobikes)
+            foreach (var item in customers)
             {
                 item.getInfor();
             }
+        }
+        public int Count()
+        {
+            return customers.Count;
         }
         public void add(Customer customer)
         {
