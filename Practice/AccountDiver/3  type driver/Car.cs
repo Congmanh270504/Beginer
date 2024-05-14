@@ -159,6 +159,26 @@ namespace Practice.AccountDiver
             }
             cars[index].getInfor();
         }
+        public void swap(int x, int y)
+        {
+            Car a = cars[x];
+            cars[x] = cars[y];
+            cars[y] = a;
+        }
+        public void sortCostIncrease()
+        {
+            int n = cars.Count;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (cars[i].payBackCompy() > cars[j].payBackCompy())
+                    {
+                        swap(i, j);
+                    }
+                }
+            }
+        }
     }
 
 }

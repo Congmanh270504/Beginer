@@ -21,11 +21,11 @@ namespace Practice.AccountDiver
         {
             this.typeCustomer = typeCustomer;
             location = setLocation();
-            Destination = toLocation();
+            destination = toLocation();
             this.typeCustomer = "Normal";
             typeVehicle = "Unset";
             location = destination = distance = 0;
-            TimeCall = getTimeCall();
+            timeCall = getTimeCall();
         }
         public string TypeCustomer
         {
@@ -108,10 +108,11 @@ namespace Practice.AccountDiver
         {
             if (TimeCall >= 10)
             {
-                typeCustomer = "VIP";
+                TypeCustomer = "VIP";
             }
-            Console.WriteLine("\tUsername:{0}\tPhone:{1}\tStatus:{2}\tType customer:{3}\tType vehicle:{4}\tYour location:{5}\tDestination:{6}\tDistance:{7}\n\tTime call driver:{8}", Username, Phone, Status, TypeCustomer, TypeVehicle, location, Destination, Distance, TimeCall);
+            Console.WriteLine("\tUsername:{0}\tPhone:{1}\tStatus:{2}\tType customer:{3}\tType vehicle:{4}\tYour location:{5} Destination:{6} Distance:{7}\n\tTime call driver:{8}", Username, Phone, Status, TypeCustomer, TypeVehicle, location, Destination, Distance, TimeCall);
         }
+
 
     }
     class ListCustomer
@@ -137,6 +138,9 @@ namespace Practice.AccountDiver
                 cus.Phone = i["phone"].InnerText;
                 cus.TypeCustomer = i["typeCustomer"].InnerText;
                 cus.TimeCall = int.Parse(i["timeCall"].InnerText);
+                cus.Location = cus.setLocation();
+                cus.Destination = cus.toLocation();
+                cus.Distance = cus.getLocation();
                 customers.Add(cus); ;
             }
         }
@@ -204,5 +208,27 @@ namespace Practice.AccountDiver
             }
             root.RemoveChild(node);
         }
+        public void getInforVIP()
+        {
+            foreach (var item in customers)
+            {
+                if (item.TypeCustomer.Equals("VIP"))
+                {
+                    updateTypeCustomer();
+                    item.getInfor();
+                }
+            }
+        }
+        public void updateTypeCustomer()
+        {
+            for (int i= 0; i < customers.Count; i++)
+            {
+                if (customers[i].TimeCall >= 10)
+                {
+                    customers[i].TypeCustomer = "VIP";
+                }
+            }
+        }
+
     }
 }

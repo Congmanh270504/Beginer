@@ -143,5 +143,25 @@ namespace Practice.AccountDiver._3__type_driver
             }
             trucks[index].getInfor();
         }
+        public void swap(int x, int y)
+        {
+            Truck a = trucks[x];
+            trucks[x] = trucks[y];
+            trucks[y] = a;
+        }
+        public void sortCostIncrease()
+        {
+            int n = trucks.Count;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (trucks[i].payBackCompy() > trucks[j].payBackCompy())
+                    {
+                        swap(i, j);
+                    }
+                }
+            }
+        }
     }
 }

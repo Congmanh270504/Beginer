@@ -128,6 +128,42 @@ namespace Practice
                         Console.WriteLine("Highest truck cost is:");
                         listTrucks.getHighestCost();
                         break;
+                    case 9:
+                        Driver.menu();
+                        do
+                        {
+                            Console.Write("Choose option: ");
+                            show = Convert.ToInt32(Console.ReadLine());
+                            switch (show)
+                            {
+                                case 1:
+                                    Console.WriteLine("Your driver: ");
+                                    listMotobike.sortCostIncrease();
+                                    listMotobike.Output();
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Your driver: ");
+                                    listCar.sortCostIncrease();
+                                    listCar.Output();
+                                    break;
+                                case 3:
+                                    Console.WriteLine("Your driver: ");
+                                    listTrucks.sortCostIncrease();
+                                    listTrucks.Output();
+                                    break;
+                                case 0:
+                                    Console.WriteLine("\tBack to menu 1!!\n");
+                                    break;
+                                default:
+                                    Console.WriteLine("Don't have that choose!!\n");
+                                    break;
+                            }
+                        } while (show != 0); ;
+                        break;
+                    case 10:
+                        Console.WriteLine("VIP customer: ");
+                        listCustomer.getInforVIP();
+                        break;
                     case 0:
                         Console.WriteLine("\tHave a nice day sir!!\n");
                         break;

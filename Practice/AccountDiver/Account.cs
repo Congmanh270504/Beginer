@@ -69,6 +69,8 @@ namespace Practice.AccountDiver
             Console.WriteLine("|| * 6.Get highest cost motobike                             * ||");
             Console.WriteLine("|| * 7.Get highest cost car                                  * ||");
             Console.WriteLine("|| * 8.Get highest cost truck                                * ||");
+            Console.WriteLine("|| * 9.Sort driver by cost                                   * ||");
+            Console.WriteLine("|| * 10.Get VIP customer                                     * ||");
             Console.WriteLine("|| ************************** WriteFile ***********************||");
             Console.WriteLine("|| ************************** WriteFile ***********************||");
             Console.WriteLine("|| * 10.Show Link list                                       * ||");

@@ -108,5 +108,25 @@ namespace Practice.AccountDiver
             }
             motobikes[index].getInfor();
         }
+        public void swap(int x, int y)
+        {
+            Motorbike a = motobikes[x];
+            motobikes[x] = motobikes[y];
+            motobikes[y] = a;
+        }
+        public void sortCostIncrease()
+        {
+            int n = motobikes.Count;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (motobikes[i].payBackCompy() > motobikes[j].payBackCompy())
+                    {
+                        swap(i, j);
+                    }
+                }
+            }
+        }
     }
 }
