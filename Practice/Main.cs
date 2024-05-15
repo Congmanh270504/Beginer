@@ -122,11 +122,11 @@ namespace Practice
                         break;
                     case 7:
                         Console.WriteLine("Highest car cost is:");
-                        listCar.getHighestCost();
+                        listCar.getHighestCostCar();
                         break;
                     case 8:
                         Console.WriteLine("Highest truck cost is:");
-                        listTrucks.getHighestCost();
+                        listTrucks.getHighestCostTruck();
                         break;
                     case 9:
                         Driver.menu();
@@ -164,6 +164,37 @@ namespace Practice
                         Console.WriteLine("VIP customer: ");
                         listCustomer.getInforVIP();
                         break;
+                    case 11:
+                        Console.WriteLine("Most time call customer: ");
+                        listCustomer.getMostTimeCall();
+                        break;
+                    case 12:
+                        Console.WriteLine("Highest revenue driver: ");
+                        result = listCar.getHighestCost();
+                        check = listTrucks.getHighestCost();
+                        if (result < check)
+                        {
+                            listCar.getHighestCostCar();
+                        }
+                        else if (result == check)
+                        {
+                            
+                             listCar.getHighestCostCar();
+                             listTrucks.getHighestCostTruck();
+                        }
+                        else
+                        {
+                             listTrucks.getHighestCostTruck();
+                        }
+                        break;
+                    case 13:
+                        Console.WriteLine("Get infor car driver have bonus: ");
+                        listCar.getInforBonusCar();
+                        break;
+                    case 14:
+                        Console.WriteLine("Most time call customer: ");
+                        listTrucks.getInforBonusTruck();
+                        break;
                     case 0:
                         Console.WriteLine("\tHave a nice day sir!!\n");
                         break;
@@ -172,17 +203,6 @@ namespace Practice
                         break;
                 }
             } while (choose != 0);
-
-
-
-
-
-
-
-
-
-
-
             Console.ReadKey();
         }
     }

@@ -129,18 +129,23 @@ namespace Practice.AccountDiver._3__type_driver
             }
             return sum;
         }
-        public void getHighestCost()
+        public int getHighestCost()
         {
-            long max = trucks[0].payBackCompy();
+            long max = trucks[0].bonus();
             int index = 0;
             for (int i = 0; i < trucks.Count; i++)
             {
-                if (max < trucks[i].payBackCompy())
+                if (max < trucks[i].bonus())
                 {
-                    max = trucks[i].payBackCompy();
+                    max = trucks[i].bonus();
                     index = i;
                 }
             }
+            return index;
+        }
+        public void getHighestCostTruck()
+        {
+            int index = getHighestCost();
             trucks[index].getInfor();
         }
         public void swap(int x, int y)
@@ -160,6 +165,16 @@ namespace Practice.AccountDiver._3__type_driver
                     {
                         swap(i, j);
                     }
+                }
+            }
+        }
+        public void getInforBonusTruck()
+        {
+            foreach (var item in trucks)
+            {
+                if (item.payBackCompy() > 3000000)
+                {
+                    item.getInfor();
                 }
             }
         }

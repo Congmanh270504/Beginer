@@ -55,7 +55,7 @@ namespace Practice.AccountDiver
         public int toLocation()
         {
             Random a = new Random();
-            return a.Next(100);
+            return a.Next(500);
         }
         public int checkDestination()
         {
@@ -221,7 +221,7 @@ namespace Practice.AccountDiver
         }
         public void updateTypeCustomer()
         {
-            for (int i= 0; i < customers.Count; i++)
+            for (int i = 0; i < customers.Count; i++)
             {
                 if (customers[i].TimeCall >= 10)
                 {
@@ -229,6 +229,25 @@ namespace Practice.AccountDiver
                 }
             }
         }
+        public void getMostTimeCall()
+        {
+            int max = customers[0].TimeCall;
+            foreach (var item in customers)
+            {
+                if (item.TimeCall > max)
+                {
+                    max = item.TimeCall;
+                }
+            }
+            foreach (var item in customers)
+            {
+                if (item.TimeCall == max)
+                {
+                    item.getInfor();
+                }
+            }
+        }
+
 
     }
 }

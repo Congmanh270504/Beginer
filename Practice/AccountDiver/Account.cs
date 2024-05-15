@@ -54,7 +54,7 @@ namespace Practice.AccountDiver
         public int setLocation()
         {
             Random a = new Random();
-            return a.Next(50);
+            return a.Next(100);
         }
         public static void menu()
         {
@@ -71,7 +71,10 @@ namespace Practice.AccountDiver
             Console.WriteLine("|| * 8.Get highest cost truck                                * ||");
             Console.WriteLine("|| * 9.Sort driver by cost                                   * ||");
             Console.WriteLine("|| * 10.Get VIP customer                                     * ||");
-            Console.WriteLine("|| ************************** WriteFile ***********************||");
+            Console.WriteLine("|| * 11.Get most Time Call customer                          * ||");
+            Console.WriteLine("|| * 12.Get highest revenue driver (car/truck)               * ||");
+            Console.WriteLine("|| * 13.Get infor car driver have bonus                      * ||");
+            Console.WriteLine("|| * 14.Get infor truck driver have bonus                    * ||");
             Console.WriteLine("|| ************************** WriteFile ***********************||");
             Console.WriteLine("|| * 10.Show Link list                                       * ||");
             Console.WriteLine("|| * 0.Exit                                                  * ||");

@@ -145,18 +145,23 @@ namespace Practice.AccountDiver
             }
             return sum;
         }
-        public void getHighestCost()
+        public int getHighestCost()
         {
-            long max = cars[0].payBackCompy();
+            long max = cars[0].bonus();
             int index = 0;
             for (int i = 0; i < cars.Count; i++)
             {
-                if (max < cars[i].payBackCompy())
+                if (max < cars[i].bonus())
                 {
-                    max = cars[i].payBackCompy();
+                    max = cars[i].bonus();
                     index = i;
                 }
             }
+            return index;
+        }
+        public void getHighestCostCar()
+        {
+            int index = getHighestCost();
             cars[index].getInfor();
         }
         public void swap(int x, int y)
@@ -176,6 +181,16 @@ namespace Practice.AccountDiver
                     {
                         swap(i, j);
                     }
+                }
+            }
+        }
+        public void getInforBonusCar()
+        {
+            foreach (var item in cars)
+            {
+                if (item.payBackCompy()>2000000)
+                {
+                    item.getInfor();
                 }
             }
         }

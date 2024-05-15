@@ -51,7 +51,7 @@ namespace Practice.AccountDiver
         }
         public new virtual void getInfor()
         {
-            Console.WriteLine("ID:{0}\tDriver name:{1}\tUsername:{2}\tPhone:{3}\tType driver:{4}\tStatus:{5}\tDistance:{6}", Id, Name, Username, Phone, TypeDiver, Status, Distance);
+            Console.WriteLine("ID:{0}\tDriver name:{1}\tUsername:{2}\tPhone:{3}\tType driver:{4}\tStatus:{5} Distance:{6}", Id, Name, Username, Phone, TypeDiver, Status, Distance);
         }
         public new static void menu()
         {
