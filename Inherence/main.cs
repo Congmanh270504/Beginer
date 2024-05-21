@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inherence.RealEstate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,8 @@ namespace Inherence.Employee
         static void Main(string[] args)
         {
             //mainStaff(args);
-            main4Wheels(args);
+            //main4Wheels(args);
+            mainRealEstate(args);
             Console.ReadKey();
 
         }
@@ -33,6 +35,15 @@ namespace Inherence.Employee
             thanhbuoi.output();
             Console.ReadLine();
 
+        }
+        static void mainRealEstate(string[] args)
+        {
+            string file = "../../../RealEstate/RealEstate.xml";
+            RealEstateList realEstateList = new RealEstateList();
+            realEstateList.Input(file);
+            //realEstateList.Output();
+            Console.WriteLine("In total value Real Estate: {0}", realEstateList.getTotalValue());
+            Console.ReadKey(true);
         }
     }
 }

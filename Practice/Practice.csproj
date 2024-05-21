@@ -9,4 +9,8 @@
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="AccountDiver\3  type driver\iyebuk2e.qsr~" />
+  </ItemGroup>
+
 </Project>

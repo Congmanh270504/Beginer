@@ -60,7 +60,8 @@ namespace Practice
             listMotobike.Input(fileCustomer);
             listCar.Input(fileCustomer);
             listTrucks.Input(fileCustomer);
-
+            List<Car> checkCar;
+            List<Truck> checkTruck;
             Account.menu();
             do
             {
@@ -122,11 +123,11 @@ namespace Practice
                         break;
                     case 7:
                         Console.WriteLine("Highest car cost is:");
-                        listCar.getHighestCostCar();
+                        listCar.getHighestCost();
                         break;
                     case 8:
                         Console.WriteLine("Highest truck cost is:");
-                        listTrucks.getHighestCostTruck();
+                        listTrucks.getHighestCost();
                         break;
                     case 9:
                         Driver.menu();
@@ -168,25 +169,24 @@ namespace Practice
                         Console.WriteLine("Most time call customer: ");
                         listCustomer.getMostTimeCall();
                         break;
-                    case 12:
-                        Console.WriteLine("Highest revenue driver: ");
-                        result = listCar.getHighestCost();
-                        check = listTrucks.getHighestCost();
-                        if (result < check)
-                        {
-                            listCar.getHighestCostCar();
-                        }
-                        else if (result == check)
-                        {
-                            
-                             listCar.getHighestCostCar();
-                             listTrucks.getHighestCostTruck();
-                        }
-                        else
-                        {
-                             listTrucks.getHighestCostTruck();
-                        }
-                        break;
+                    //case 12:
+                    //    Console.WriteLine("Highest revenue driver: ");
+                    //    result = listCar.getHighestCost();
+                    //    check = listTrucks.getHighestCost();
+                    //    if (result < check)
+                    //    {
+                    //        listCar.getHighestCostCar();
+                    //    }
+                    //    else if (result == check)
+                    //    {
+                    //         listCar.getHighestCostCar();
+                    //         listTrucks.getHighestCostTruck();
+                    //    }
+                    //    else
+                    //    {
+                    //         listTrucks.getHighestCostTruck();
+                    //    }
+                    //    break;
                     case 13:
                         Console.WriteLine("Get infor car driver have bonus: ");
                         listCar.getInforBonusCar();

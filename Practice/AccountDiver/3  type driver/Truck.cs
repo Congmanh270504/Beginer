@@ -129,25 +129,23 @@ namespace Practice.AccountDiver._3__type_driver
             }
             return sum;
         }
-        public int getHighestCost()
+        public void getHighestCost()
         {
-            long max = trucks[0].bonus();
+            long max = trucks[0].payBackCompy();
             int index = 0;
             for (int i = 0; i < trucks.Count; i++)
             {
-                if (max < trucks[i].bonus())
+                if (max < trucks[i].payBackCompy())
                 {
-                    max = trucks[i].bonus();
+                    max = trucks[i].payBackCompy();
                     index = i;
                 }
             }
-            return index;
-        }
-        public void getHighestCostTruck()
-        {
-            int index = getHighestCost();
             trucks[index].getInfor();
         }
+        //public List<Truck> getHighestCostTruck()
+        //{
+        //}
         public void swap(int x, int y)
         {
             Truck a = trucks[x];
