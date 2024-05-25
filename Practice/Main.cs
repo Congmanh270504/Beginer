@@ -1,6 +1,7 @@
 ﻿using Practice.ABC;
 using Practice.AccountDiver;
 using Practice.AccountDiver._3__type_driver;
+using Practice.Petrol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,8 @@ namespace Practice
             //mainContractSinger(args);
             //  mainEmployee(args);
             //mainABC(args);
-            mainAccount(args);
+            //mainAccount(args);
+            mainPetrol(args);
             Console.ReadKey();
         }
         static void mainContractSinger(string[] args)
@@ -49,6 +51,7 @@ namespace Practice
         static void mainAccount(string[] args)
         {
             Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
             string fileCustomer = "../../../AccountDiver/XML/Accounts.xml";
             ListCustomer listCustomer = new ListCustomer();
             ListMotobike listMotobike = new ListMotobike();
@@ -203,6 +206,15 @@ namespace Practice
                         break;
                 }
             } while (choose != 0);
+            Console.ReadKey();
+        }
+        static void mainPetrol(string[] args)
+        {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+            string file = "../../../Petrol/Petrol.xml";
+            ListBill listBill = new ListBill();
+            listBill.Input(file);
             Console.ReadKey();
         }
     }

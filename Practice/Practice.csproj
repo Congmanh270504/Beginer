@@ -13,4 +13,10 @@
     <None Remove="AccountDiver\3  type driver\iyebuk2e.qsr~" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Petrol\Petrol.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

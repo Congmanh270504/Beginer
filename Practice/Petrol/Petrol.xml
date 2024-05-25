@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GasolineList>
+	<Bills>
+		<typeCustomer>VIP</typeCustomer>
+		<id>KH001</id>
+		<name>Huỳnh Công Văn</name>
+		<timeset>03/08/2012</timeset>
+		<Gasoline>
+			<idItem>IT001</idItem>
+			<nameItem>RON 95-V</nameItem>
+			<cost>20000</cost>
+		</Gasoline>
+	</Bills>
+	<Bills>
+		<typeCustomer>Haunt</typeCustomer>
+		<id>KH002</id>
+		<name>Trần Văn Nhựt</name>
+		<timeset>04/12/2009</timeset>
+		<Gasoline>
+			<idItem>IT002</idItem>
+			<nameItem>E5 RON 92 - II</nameItem>
+			<cost>20000</cost>
+		</Gasoline>
+	</Bills>
+	<Bills>
+		<typeCustomer>Closest</typeCustomer>
+		<id>KH003</id>
+		<name>Trần Minh Mẫn</name>
+		<timeset>03/08/2012</timeset>
+		<Gasoline>
+			<idItem>IT003</idItem>
+			<nameItem> RON 95 </nameItem>
+			<cost>20000</cost>
+		</Gasoline>
+	</Bills>
+	<Bills>
+		<typeCustomer>VIP</typeCustomer>
+		<id>KH004</id>
+		<name>Hồ Tuấn Thành</name>
+		<timeset>07/02/2016</timeset>
+		<Gasoline>
+			<idItem>IT001</idItem>
+			<nameItem>RON 95-V</nameItem>
+			<cost>20000</cost>
+		</Gasoline>
+	</Bills>
+	<Bills>
+		<typeCustomer>Haunt</typeCustomer>
+		<id>KH005</id>
+		<name>Đinh Bảo Lộcn</name>
+		<timeset>14/04/2015</timeset>
+		<Gasoline>
+			<idItem>IT004</idItem>
+			<nameItem>RON 95-III</nameItem>
+			<cost>20000</cost>
+		</Gasoline>
+	</Bills>
+</GasolineList>
