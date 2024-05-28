@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Practice.Petrol
 {
-     class Bill : Gasoline
+    class Bill : Gasoline
     {
         string id, name, itemType, typeCustomer;
         DateTime timeSet;
@@ -66,7 +66,7 @@ namespace Practice.Petrol
         }
         public void getInfor()
         {
-            Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}", TypeCustomer, Id, Name, TimeSet, Quantity);
+            Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}", TypeCustomer, Id, Name, TimeSet.ToString("dd/M/yyyy"), Quantity);
             Console.WriteLine("{0}\t{1}\t{2}", IdItem, NameItem, Cost);
         }
     }

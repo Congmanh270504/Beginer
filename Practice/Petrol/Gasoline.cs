@@ -36,7 +36,7 @@ namespace Practice.Petrol
         }
         public void getInfor()
         {
-            Console.WriteLine("{0}\t{1}\t{2}",IdItem,NameItem,Cost);
+            Console.WriteLine("{0}\t{1}\t{2}", IdItem, NameItem, Cost);
         }
 
     }

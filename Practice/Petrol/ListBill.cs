@@ -1,13 +1,14 @@
 ﻿using Practice.Petrol;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 namespace Practice.Petrol
 {
-    internal class ListBill:Bill
+    internal class ListBill : Bill
     {
         List<ListBill> listBills = new List<ListBill>();
         List<Gasoline> gasolines = new List<Gasoline>();
@@ -31,6 +32,7 @@ namespace Practice.Petrol
                 temp.Id = i["id"].InnerText;
                 temp.Name = i["name"].InnerText;
                 temp.TimeSet = Convert.ToDateTime(i["timeset"].InnerText);
+
                 XmlNodeList nodeChild = i["Gasoline"].ChildNodes;
                 foreach (XmlNode j in nodeChild)
                 {

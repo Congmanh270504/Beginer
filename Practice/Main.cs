@@ -215,6 +215,7 @@ namespace Practice
             string file = "../../../Petrol/Petrol.xml";
             ListBill listBill = new ListBill();
             listBill.Input(file);
+            listBill.Output();
             Console.ReadKey();
         }
     }
