@@ -1,4 +1,5 @@
 ﻿using Practice.Petrol;
+using Practice.Petrol.TypeCustomer;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -32,7 +33,7 @@ namespace Practice.Petrol
                 temp.Id = i["id"].InnerText;
                 temp.Name = i["name"].InnerText;
                 temp.TimeSet = Convert.ToDateTime(i["timeset"].InnerText);
-
+                temp.Quantity = Convert.ToInt32(i["quantity"].InnerText);
                 XmlNodeList nodeChild = i["Gasoline"].ChildNodes;
                 foreach (XmlNode j in nodeChild)
                 {
@@ -47,9 +48,36 @@ namespace Practice.Petrol
         }
         public void Output()
         {
-            foreach (var item in listBills)
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20} {5,-20} {6,-20} {7,-20} {8,-20} ", "Loại KH", "Mã KH", "Tên KH", "Ngày lập", "Số lượng", "Mã hàng", "Tên hàng", "Đơn giá", "Tổng tiền");
+            Console.ForegroundColor = ConsoleColor.White;
+            string check = "";
+            foreach (var i in listBills)
             {
-                item.getInfor();
+                check = i.TypeCustomer;
+                i.getInfor();
+                foreach (Gasoline j in i.gasolines)
+                {
+                    j.getInfor();
+                    switch (check)
+                    {
+                        case "VIP":
+                            VIP vip = new VIP(j.IdItem, j.NameItem, j.Cost, i.Id, i.Name, i.ItemType, i.TypeCustomer, i.TimeSet, i.Quantity);
+                            Console.WriteLine(" {0,-20}đ", vip.getPromotion());
+                            break;
+                        case "Closest":
+                            Closest closest = new Closest(j.IdItem, j.NameItem, j.Cost, i.Id, i.Name, i.ItemType, i.TypeCustomer, i.TimeSet, i.Quantity);
+                            Console.WriteLine(" {0,-20}đ", closest.getPromotion());
+                            break;
+                        case "Haunt":
+                            Haunt haunt = new Haunt(j.IdItem, j.NameItem, j.Cost, i.Id, i.Name, i.ItemType, i.TypeCustomer, i.TimeSet, i.Quantity);
+                            Console.WriteLine(" {0,-20}đ", haunt.getPromotion());
+                            break;
+                        default:
+                            Console.WriteLine("How did u get here??");
+                            break;
+                    }
+                }
             }
         }
     }

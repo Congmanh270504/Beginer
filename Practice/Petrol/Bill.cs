@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Practice.Petrol
 {
@@ -52,6 +54,15 @@ namespace Practice.Petrol
             quantity = 0;
             typeCustomer = "";
         }
+        public Bill(string idItem, string nameItem, double cost, string id, string name, string itemType, string typeCustomer, DateTime timeSet, int quantity) : base(idItem, nameItem, cost)
+        {
+            this.id = id;
+            this.name = name;
+            this.itemType = itemType;
+            this.typeCustomer = typeCustomer;
+            this.timeSet = timeSet;
+            this.quantity = quantity;
+        }
         public virtual double getPromotion()
         {
             return 0;
@@ -66,8 +77,7 @@ namespace Practice.Petrol
         }
         public void getInfor()
         {
-            Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}", TypeCustomer, Id, Name, TimeSet.ToString("dd/M/yyyy"), Quantity);
-            Console.WriteLine("{0}\t{1}\t{2}", IdItem, NameItem, Cost);
+            Console.Write("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20} ", TypeCustomer, Id, Name, TimeSet.ToString("dd/M/yyyy"), Quantity);
         }
     }
 }

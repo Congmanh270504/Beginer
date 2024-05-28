@@ -1,15 +1,21 @@
 ﻿using Practice.Petrol;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Practice.Petrol.TypeCustomer
 {
     class VIP : Bill, Payment
     {
         public VIP() : base()
+        {
+        }
+        public VIP(string idItem, string nameItem, double cost, string id, string name, string itemType, string typeCustomer, DateTime timeSet, int quantity) : base(idItem, nameItem, cost, id, name, itemType, typeCustomer, timeSet, quantity)
         {
 
         }

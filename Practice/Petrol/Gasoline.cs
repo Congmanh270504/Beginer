@@ -34,9 +34,15 @@ namespace Practice.Petrol
             nameItem = "";
             cost = 0;
         }
+        public Gasoline(string idItem, string nameItem, double cost)
+        {
+            this.idItem = idItem;
+            this.nameItem = nameItem;
+            this.cost = cost;
+        }
         public void getInfor()
         {
-            Console.WriteLine("{0}\t{1}\t{2}", IdItem, NameItem, Cost);
+            Console.Write("{0,-20} {1,-20} {2,-20}", IdItem, NameItem, Cost);
         }
 
     }

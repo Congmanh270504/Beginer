@@ -13,6 +13,10 @@ namespace Practice.Petrol.TypeCustomer
         {
             
         }
+        public Closest(string idItem, string nameItem, double cost, string id, string name, string itemType, string typeCustomer, DateTime timeSet, int quantity) : base(idItem, nameItem, cost, id, name, itemType, typeCustomer, timeSet, quantity)
+        {
+
+        }
         public override double getPromotion()
         {
             double checkCost = getCost();

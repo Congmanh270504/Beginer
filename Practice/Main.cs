@@ -18,6 +18,7 @@ namespace Practice
             //  mainEmployee(args);
             //mainABC(args);
             //mainAccount(args);
+            Console.OutputEncoding = Encoding.UTF8;
             mainPetrol(args);
             Console.ReadKey();
         }
