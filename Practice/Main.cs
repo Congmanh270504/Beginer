@@ -14,11 +14,11 @@ namespace Practice
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             //mainContractSinger(args);
             //  mainEmployee(args);
             //mainABC(args);
             //mainAccount(args);
-            Console.OutputEncoding = Encoding.UTF8;
             mainPetrol(args);
             Console.ReadKey();
         }
@@ -214,9 +214,37 @@ namespace Practice
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
             string file = "../../../Petrol/Petrol.xml";
+            int choose = 0;
+            double result = 0;
             ListBill listBill = new ListBill();
+            List<ListBill> tmp = new List<ListBill>();
             listBill.Input(file);
-            listBill.Output();
+            ListBill.menu();
+            do
+            {
+                Console.Write("Choose option: ");
+                choose = Convert.ToInt32(Console.ReadLine());
+                switch (choose)
+                {
+                    case 1:
+                        listBill.Output();
+                        break;
+                    case 2:
+                        tmp = listBill.getHaunt();
+                        foreach (var item in tmp)
+                        {
+                            item.getInfor();
+                            Console.WriteLine("\n");
+                        }
+                        break;
+                    case 3:
+                        result = listBill.Sum();
+                        Console.WriteLine("Total money:{0}", result);
+                        break;
+                    default:
+                        break;
+                }
+            } while (choose != 0);
             Console.ReadKey();
         }
     }

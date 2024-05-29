@@ -77,7 +77,7 @@ namespace Practice.Petrol
         }
         public void getInfor()
         {
-            Console.Write("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20} ", TypeCustomer, Id, Name, TimeSet.ToString("dd/M/yyyy"), Quantity);
+            Console.Write("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20} {5,-20} {6,-20} {7,-20}", TypeCustomer, Id, Name, TimeSet.ToString("dd/M/yyyy"), Quantity, IdItem, NameItem, Cost);
         }
     }
 }
