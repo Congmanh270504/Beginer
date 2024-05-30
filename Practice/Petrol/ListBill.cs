@@ -132,8 +132,16 @@ namespace Practice.Petrol
         }
         public double getHighestBill()
         {
-
+        
+// tìm giá trị của cái i cost so sánh thử
             return 0;
+        }
+        public void countVipClosest()
+        {
+        if() // if have vip or closest customer => getInfor()
+        {
+        
+        }
         }
     }
 }
