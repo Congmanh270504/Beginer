@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ListT>
+  <ABC>
+    <type>Production</type>
+    <id>13DHTH1</id>
+    <name>Mạnh</name>
+    <dayoff>3</dayoff>
+    <timestart>2020</timestart>
+    <salaryPoint>0.2</salaryPoint>
+    <heabyJob>2</heabyJob>
+  </ABC>
+  <ABC>
+    <type>Production</type>
+    <id>13DHTH2</id>
+    <name>Sơn</name>
+    <dayoff>0</dayoff>
+    <timestart>2002</timestart>
+    <salaryPoint>0.5</salaryPoint>
+    <heabyJob>1</heabyJob>
+
+  </ABC>
+  <ABC>
+    <type>Manager</type>
+    <id>13DHTH3</id>
+    <name>Tấn</name>
+    <dayoff>1</dayoff>
+    <timestart>2010</timestart>
+    <salaryPoint>0.7</salaryPoint>
+    <position>Trưởng phòng</position>
+    <positionPoint>0.3</positionPoint>
+  </ABC>
+  <ABC>
+    <type>Business</type>
+    <id>13DHTH4</id>
+    <name>Quý</name>
+    <dayoff>0</dayoff>
+    <timestart>2021</timestart>
+    <salaryPoint>0.3</salaryPoint>
+    <minitem>10</minitem>
+    <item>20</item>
+  </ABC>
+  <ABC>
+    <type>Business</type>
+    <id>13DHTH5</id>
+    <name>An</name>
+    <dayoff>1</dayoff>
+    <timestart>2019</timestart>
+    <salaryPoint>0.3</salaryPoint>
+    <minitem>30</minitem>
+    <item>24</item>
+  </ABC>
+  <ABC>
+    <type>Manager</type>
+    <id>13DHTH6</id>
+    <name>Linh</name>
+    <dayoff>2</dayoff>
+    <timestart>2004</timestart>
+    <salaryPoint>0.3</salaryPoint>
+    <position>Phó phòng</position>
+    <positionPoint>0.75</positionPoint>
+  </ABC>
+  <BCD>
+    <id>14DHTH1</id>
+    <name>Quỳnh</name>
+    <total>2000000</total>
+  </BCD>
+  <BCD>
+    <id>14DHTH2</id>
+    <name>Thảo</name>
+    <total>3500000</total>
+  </BCD>
+</ListT>

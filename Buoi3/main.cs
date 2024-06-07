@@ -10,7 +10,6 @@ namespace Buoi3
     {
         static void Main(string[] args)
         {
-            Staff A = new Staff();
             A.getInfor();
             Console.ReadKey();
         }
